@@ -13,4 +13,6 @@ public class Unit : ScriptableObject
     public int moveSpeed;
     public int health;
     public float cooldown;
+
+    public RuntimeAnimatorController runtimeAnimatorController;
 }
