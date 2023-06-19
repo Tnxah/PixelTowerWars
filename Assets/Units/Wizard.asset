@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   name: Wizard
+  team: 2
   manaCost: 25
   attack: 10
   attackSpeed: 1

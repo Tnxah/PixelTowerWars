@@ -6,9 +6,12 @@ public class CharacterUnit : MonoBehaviour
 {
     public Unit unit;
 
+    [HideInInspector]
+    public Team team;
+
     public UnitCombat unitCombat;
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<GameObject> enemies = new List<GameObject>();
     [HideInInspector]
     public int manaCost;
@@ -22,7 +25,8 @@ public class CharacterUnit : MonoBehaviour
     public Rigidbody2D rb;
     [HideInInspector]
     public Animator animator;
-
+    [HideInInspector]
+    public Vector2 direction = Vector2.right; //set while spawn
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,7 @@ public class CharacterUnit : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
+        team = unit.team;
         manaCost = unit.manaCost;
         moveSpeed = unit.moveSpeed;
         health = unit.health;
@@ -63,15 +68,13 @@ public class CharacterUnit : MonoBehaviour
     private void Run()
     {
         animator.SetBool("Run", true);
-
-        Vector2 direction = (Vector2.right).normalized;
         rb.velocity = direction * moveSpeed;
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.GetComponent<CharacterUnit>().team.Equals(team) || other.CompareTag("Enemy"))
         {
             enemies.Add(other.gameObject);
             rb.velocity = Vector2.zero;

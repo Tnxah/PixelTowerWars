@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: 
   name: Ghost
+  team: 2
   manaCost: 5
   attack: 1
   attackSpeed: 2
   moveSpeed: 5
   health: 100
   cooldown: 1
+  runtimeAnimatorController: {fileID: 0}

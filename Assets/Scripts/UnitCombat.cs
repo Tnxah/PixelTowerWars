@@ -11,6 +11,9 @@ public class UnitCombat : MonoBehaviour
     [HideInInspector]
     public int attackSpeed;
 
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+
     private float lastAttackTime;
 
     private void Start()
@@ -20,15 +23,25 @@ public class UnitCombat : MonoBehaviour
 
     public void Attack()
     {
-        if (Time.time - lastAttackTime >= attackSpeed)
+        if (Time.time - lastAttackTime < attackSpeed) 
+            return;
+        
+        characterUnit.animator.SetTrigger("Attack");
+        lastAttackTime = Time.time;
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, 0.5f);
+
+        foreach (Collider2D enemy in hitEnemies)
         {
-            characterUnit.animator.SetTrigger("Attack");
-            lastAttackTime = Time.time;
+            print("Hit " + enemy.name);
         }
+    }
 
-        // For example, reduce the enemy's health or apply damage
-
-        // Uncomment the line below to apply damage to the enemy
-        // enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint)
+        {
+            Gizmos.DrawWireSphere(attackPoint.position, 0.5f);
+        }
     }
 }

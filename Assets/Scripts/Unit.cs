@@ -7,6 +7,8 @@ public class Unit : ScriptableObject
 {
     public new string name;
 
+    public Team team;
+
     public int manaCost;
     public int attack;
     public int attackSpeed;
