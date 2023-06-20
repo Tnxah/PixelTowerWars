@@ -29,13 +29,13 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
     //===============HEALTH===============
     //[HideInInspector]
-    public int health;
+    public float health;
 
     //===============ATTACK===============
     [HideInInspector]
-    public int attackSpeed;
+    public float attackSpeed;
     [HideInInspector]
-    public int attack;
+    public float attack;
 
     private float lastAttackTime;
 
@@ -98,7 +98,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     }
 
     //HEALTH
-    public void DealDamage(int damage)
+    public void DealDamage(float damage)
     {
         health -= damage;
 

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour, IAttackable
 {
-    public int health = 1000;
+    public float health = 1000;
     
     public Team team;
 
@@ -13,7 +11,9 @@ public class Tower : MonoBehaviour, IAttackable
 
     public float lastSpawnTime;
 
-    public void DealDamage(int damage)
+    public Transform spawnPoint;
+
+    public void DealDamage(float damage)
     {
         health -= damage;
 
@@ -32,10 +32,13 @@ public class Tower : MonoBehaviour, IAttackable
 
     private void FixedUpdate()
     {
+        var randomPosition = new Vector3(spawnPoint.position.x, UnityEngine.Random.Range(spawnPoint.position.y - 0.3f, spawnPoint.position.y + 0.3f), spawnPoint.position.z);
+
         if (Time.time - lastSpawnTime >= unit.cooldown)
         {
-            var character = Instantiate(prefab);
+            var character = Instantiate(prefab, randomPosition, Quaternion.identity);
             character.GetComponent<CharacterUnit>().Initialize(unit, (int)transform.lossyScale.x);
+            character.GetComponent<SpriteRenderer>().sortingOrder = (int)(-randomPosition.y * 100f);
             lastSpawnTime = Time.time;
         }
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Old Hero
   team: 1
-  manaCost: 30
+  manaCost: 25
   attack: 10
   attackSpeed: 1
   moveSpeed: 1

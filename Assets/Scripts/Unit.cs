@@ -10,8 +10,8 @@ public class Unit : ScriptableObject
     public Team team;
 
     public int manaCost;
-    public int attack;
-    public int attackSpeed;
+    public float attack;
+    public float attackSpeed;
     public int moveSpeed;
     public int health;
     public float cooldown;

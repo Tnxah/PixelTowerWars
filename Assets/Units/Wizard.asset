@@ -19,5 +19,5 @@ MonoBehaviour:
   attackSpeed: 1
   moveSpeed: 2
   health: 250
-  cooldown: 10
+  cooldown: 8
   runtimeAnimatorController: {fileID: 9100000, guid: 2c002d4c3bca22d4a908ccbbf93405e5, type: 2}

@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IAttackable
 {
     public Team GetTeam();
-    public void DealDamage(int damage);
+    public void DealDamage(float damage);
 }
