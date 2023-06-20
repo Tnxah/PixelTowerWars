@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &220046402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 220046403}
+  - component: {fileID: 7007350873306485783}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &220046403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220046402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5146026247094217717}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7007350873306485783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220046402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a05d6993c34bf24e81d1e4fb194c024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterUnit: {fileID: 5146026247094217716}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &5146026247094217718
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,12 +58,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5146026247094217717}
   - component: {fileID: 5146026247094217716}
-  - component: {fileID: 2534009573878213533}
   - component: {fileID: 5146026247094217719}
   - component: {fileID: 5146026247094217714}
   - component: {fileID: 5146026247094217712}
   - component: {fileID: 5146026247094217715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +80,8 @@ Transform:
   m_LocalPosition: {x: -10.23, y: -3.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 220046403}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,19 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  unitCombat: {fileID: 2534009573878213533}
---- !u!114 &2534009573878213533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5146026247094217718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16649083d94bf4f4992566b92426ddb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  team: 0
+  enemies: []
+  manaCost: 0
+  moveSpeed: 0
+  cooldown: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  direction: {x: 1, y: 0}
+  health: 0
+  attackSpeed: 0
+  attack: 0
 --- !u!95 &5146026247094217719
 Animator:
   serializedVersion: 5
@@ -173,13 +219,13 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1.2, y: 3}
   m_EdgeRadius: 0

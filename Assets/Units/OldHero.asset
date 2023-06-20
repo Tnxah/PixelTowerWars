@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
-  m_Name: Wizard
+  m_Name: OldHero
   m_EditorClassIdentifier: 
-  name: Wizard
-  team: 2
-  manaCost: 25
-  attack: 15
+  name: Old Hero
+  team: 1
+  manaCost: 30
+  attack: 10
   attackSpeed: 1
-  moveSpeed: 2
-  health: 250
+  moveSpeed: 1
+  health: 350
   cooldown: 10
-  runtimeAnimatorController: {fileID: 9100000, guid: 2c002d4c3bca22d4a908ccbbf93405e5, type: 2}
+  runtimeAnimatorController: {fileID: 9100000, guid: 5c0645ea722912d488ba551f016688d8, type: 2}

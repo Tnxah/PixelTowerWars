@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterUnit : MonoBehaviour
+public class CharacterUnit : MonoBehaviour, IAttackable
 {
     public Unit unit;
 
     [HideInInspector]
     public Team team;
 
-    public UnitCombat unitCombat;
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<GameObject> enemies = new List<GameObject>();
     [HideInInspector]
     public int manaCost;
     [HideInInspector]
     public int moveSpeed;
-    [HideInInspector]
-    public int health;
     [HideInInspector]
     public float cooldown;
     [HideInInspector]
@@ -27,42 +24,62 @@ public class CharacterUnit : MonoBehaviour
     public Animator animator;
     [HideInInspector]
     public Vector2 direction = Vector2.right; //set while spawn
+    [HideInInspector]
+    private bool alive = true;
+
+    //===============HEALTH===============
+    //[HideInInspector]
+    public int health;
+
+    //===============ATTACK===============
+    [HideInInspector]
+    public int attackSpeed;
+    [HideInInspector]
+    public int attack;
+
+    private float lastAttackTime;
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize(Unit unit, int direction)
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        this.unit = unit;
 
-        team = unit.team;
-        manaCost = unit.manaCost;
-        moveSpeed = unit.moveSpeed;
-        health = unit.health;
-        cooldown = unit.cooldown;
+        this.rb = GetComponent<Rigidbody2D>();
+        this.animator = GetComponent<Animator>();
+        
+        this.team = unit.team;
+        this.manaCost = unit.manaCost;
+        this.moveSpeed = unit.moveSpeed;
+        this.health = unit.health;
+        this.cooldown = unit.cooldown;
+        this.direction *= direction;
+        this.transform.localScale = new Vector3(
+            direction, 
+            transform.localScale.y,
+            transform.localScale.z
+            );
 
-        unitCombat.attack = unit.attack;
-        unitCombat.attackSpeed = unit.attackSpeed;
-
-        animator.runtimeAnimatorController = unit.runtimeAnimatorController;
-
-
+        this.attack = unit.attack;
+        this.attackSpeed = unit.attackSpeed;
+        
+        this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
 
     private void FixedUpdate()
     {
-        if (enemies.Count <= 0)
+        if (enemies.Count <= 0 && alive)
         {
             Run();
         }
-        else if (enemies.Count > 0)
+        else if (enemies.Count > 0 && alive)
         {
-            unitCombat.Attack();
+            Attack();
         }
     }
 
     private void Update()
     {
-        animator.SetFloat("Run", rb.velocity.x);
+        animator.SetFloat("Run", Mathf.Abs(rb.velocity.x));
     }
 
     private void Run()
@@ -71,10 +88,43 @@ public class CharacterUnit : MonoBehaviour
         rb.velocity = direction * moveSpeed;
     }
 
+    public void Attack()
+    {
+        if (Time.time - lastAttackTime < attackSpeed)
+            return;
+
+        animator.SetTrigger("Attack");
+        lastAttackTime = Time.time;
+    }
+
+    //HEALTH
+    public void DealDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+            alive = false;
+            rb.velocity = Vector2.zero;
+            animator.SetTrigger("Death");
+            StartCoroutine(Death());
+        }
+
+    }
+
+    public Team GetTeam()
+    {
+        return team;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.GetComponent<CharacterUnit>().team.Equals(team) || other.CompareTag("Enemy"))
+
+        var attackable = other.GetComponent<IAttackable>();
+        if (attackable == null) return;
+
+        if (!other.GetComponent<IAttackable>().GetTeam().Equals(team))
         {
             enemies.Add(other.gameObject);
             rb.velocity = Vector2.zero;
@@ -83,9 +133,20 @@ public class CharacterUnit : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && enemies.Contains(collision.gameObject))
+        var attackable = collision.GetComponent<IAttackable>();
+        if (attackable == null) return;
+
+        if (!collision.GetComponent<IAttackable>().GetTeam().Equals(team) && enemies.Contains(collision.gameObject))
         {
             enemies.Remove(collision.gameObject);
         }
+    }
+
+    public IEnumerator Death() {
+        yield return new WaitForSeconds(5);
+
+        //REWARD;
+
+        Destroy(gameObject);
     }
 }
