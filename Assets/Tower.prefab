@@ -82,10 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   team: 0
-  unit: {fileID: 0}
-  prefab: {fileID: 5146026247094217718, guid: 1665712c7646e8945afb67df6adf56fa, type: 3}
-  lastSpawnTime: 0
+  unitPrefab: {fileID: 5146026247094217718, guid: 1665712c7646e8945afb67df6adf56fa, type: 3}
   spawnPoint: {fileID: 9125099316666874696}
+  animator: {fileID: 0}
 --- !u!50 &9125099316981933253
 Rigidbody2D:
   serializedVersion: 4

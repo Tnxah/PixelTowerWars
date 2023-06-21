@@ -110,6 +110,15 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             EnemyService.RewardMana(team, manaCost / 2);
             animator.SetTrigger("Death");
             StartCoroutine(Death());
+
+            return;
+        }
+
+        if (Random.Range(0, 100) <= 5) //Critical damage
+        {
+            DealDamage(damage * 0.5f);
+            rb.AddForce(-direction * 0.05f);
+            animator.SetTrigger("Hit");
         }
 
     }
