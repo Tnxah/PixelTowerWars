@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
-  m_Name: Sceleton
+  m_Script: {fileID: 11500000, guid: 40f55ebba6e31cd469b33d34d9b55690, type: 3}
+  m_Name: Humans Tower
   m_EditorClassIdentifier: 
-  name: Ghost
-  team: 2
-  manaCost: 5
-  attack: 1
-  attackSpeed: 2
-  moveSpeed: 5
-  health: 100
-  cooldown: 1
+  name: 
+  team: 1
+  units:
+  - {fileID: 11400000, guid: b7da24bd7a92d934eb8765e8c7ef7f3b, type: 2}
+  towerHealth: 1000
+  manaPerSecond: 1
+  maxMana: 300
   runtimeAnimatorController: {fileID: 0}

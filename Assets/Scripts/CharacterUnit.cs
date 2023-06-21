@@ -107,6 +107,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             GetComponent<BoxCollider2D>().enabled = false;
             alive = false;
             rb.velocity = Vector2.zero;
+            EnemyService.RewardMana(team, manaCost / 2);
             animator.SetTrigger("Death");
             StartCoroutine(Death());
         }
@@ -144,8 +145,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
     public IEnumerator Death() {
         yield return new WaitForSeconds(5);
-
-        //REWARD;
 
         Destroy(gameObject);
     }
