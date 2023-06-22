@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour
 
     private Touch touch;
 
-    private float sensitivity = 10f;
+    private float standaloneSensitivity = 10f;
+    private float androidSensitivity = 0.5f;
 
     private float leftCamLimitPosition;
     private float rightCamLimitPosition;
@@ -40,7 +41,7 @@ public class CameraController : MonoBehaviour
 
     private void StandaloneCameraControl()
     {
-        MoveCamera(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * sensitivity + cam.transform.position.x);
+        MoveCamera(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * standaloneSensitivity + cam.transform.position.x);
     }
 
     private void AndroidCameraControl()
@@ -51,7 +52,7 @@ public class CameraController : MonoBehaviour
 
             if (touch.phase.Equals(TouchPhase.Moved))
             {
-                MoveCamera(touch.deltaPosition.x * Time.fixedDeltaTime + cam.transform.position.x);
+                MoveCamera(-touch.deltaPosition.x * Time.fixedDeltaTime * androidSensitivity + cam.transform.position.x);
             }
         }
     }
