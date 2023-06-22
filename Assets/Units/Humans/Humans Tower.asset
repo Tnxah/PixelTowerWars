@@ -15,6 +15,7 @@ MonoBehaviour:
   name: 
   team: 1
   units:
+  - {fileID: 11400000, guid: ca11b9eee60de294c8512a1012eb518a, type: 2}
   - {fileID: 11400000, guid: b7da24bd7a92d934eb8765e8c7ef7f3b, type: 2}
   towerHealth: 1000
   manaPerSecond: 1

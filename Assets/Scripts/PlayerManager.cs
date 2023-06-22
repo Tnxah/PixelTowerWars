@@ -18,6 +18,11 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         this.units = towerUnit.units;
 
         this.maxMana = towerUnit.maxMana;
@@ -26,11 +31,6 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
         StartCoroutine(PerSecondCoroutine());
 
         tower.Initialize(towerUnit);

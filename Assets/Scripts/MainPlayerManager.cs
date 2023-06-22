@@ -23,7 +23,7 @@ public class MainPlayerManager : PlayerManager
 
             var button = Instantiate(unitButtonPrefab, unitsHolder);
             button.GetComponent<Button>().onClick.AddListener(() => SpawnUnit(index));
-            button.GetComponentInChildren<Image>().sprite = null;
+            button.GetComponentsInChildren<Image>()[1].sprite = units[i]?.icon;
             button.GetComponentInChildren<TextMeshProUGUI>().text = units[i].manaCost.ToString();
         }
     }

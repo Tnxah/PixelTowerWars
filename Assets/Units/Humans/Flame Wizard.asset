@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
-  m_Name: Wizard
+  m_Name: Flame Wizard
   m_EditorClassIdentifier: 
-  name: Wizard
-  icon: {fileID: 21300000, guid: c9b7d011e738e264eb7f1d7153abb966, type: 3}
-  team: 2
+  name: Flame Wizard
+  team: 1
   attackType: 2
-  manaCost: 25
-  attack: 15
-  attackSpeed: 1
+  manaCost: 35
+  attack: 4
+  attackSpeed: 0.7
   moveSpeed: 2
-  health: 250
-  cooldown: 8
-  runtimeAnimatorController: {fileID: 9100000, guid: 2c002d4c3bca22d4a908ccbbf93405e5, type: 2}
+  health: 200
+  cooldown: 50
+  runtimeAnimatorController: {fileID: 9100000, guid: 4bca1a700b4b85d42bc85449c24d3484, type: 2}

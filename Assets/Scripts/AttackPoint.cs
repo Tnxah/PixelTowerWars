@@ -18,6 +18,9 @@ public class AttackPoint : MonoBehaviour
             if (attackable != null && !attackable.GetTeam().Equals(characterUnit.team))
             {
                 attackable.DealDamage(characterUnit.attack);
+
+                if (!characterUnit.attackType.Equals(AttackType.Area)) 
+                    return;
             }
         }
 

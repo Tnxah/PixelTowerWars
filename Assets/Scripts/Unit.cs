@@ -7,7 +7,10 @@ public class Unit : ScriptableObject
 {
     public new string name;
 
+    public Sprite icon;
+
     public Team team;
+    public AttackType attackType;
 
     public int manaCost;
     public float attack;
@@ -15,6 +18,7 @@ public class Unit : ScriptableObject
     public int moveSpeed;
     public int health;
     public float cooldown;
+    
 
     public RuntimeAnimatorController runtimeAnimatorController;
 }

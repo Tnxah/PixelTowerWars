@@ -36,6 +36,8 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     public float attackSpeed;
     [HideInInspector]
     public float attack;
+    [HideInInspector]
+    public AttackType attackType;
 
     private float lastAttackTime;
 
@@ -61,6 +63,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
         this.attack = unit.attack;
         this.attackSpeed = unit.attackSpeed;
+        this.attackType = unit.attackType;
         
         this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
@@ -102,6 +105,13 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     {
         health -= damage;
 
+        if (Random.Range(0, 100) <= 5) //Critical damage
+        {
+            health -= damage * 0.5f;
+            rb.AddForce(-direction * 0.15f);
+            animator.SetTrigger("Hit");
+        }
+
         if (health <= 0)
         {
             GetComponent<BoxCollider2D>().enabled = false;
@@ -110,16 +120,9 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             EnemyService.RewardMana(team, manaCost / 2);
             animator.SetTrigger("Death");
             StartCoroutine(Death());
-
-            return;
         }
 
-        if (Random.Range(0, 100) <= 5) //Critical damage
-        {
-            DealDamage(damage * 0.5f);
-            rb.AddForce(-direction * 0.05f);
-            animator.SetTrigger("Hit");
-        }
+        
 
     }
 
