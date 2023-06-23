@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 100048069}
-  mana: 60
+  mana: 25
   towerUnit: {fileID: 11400000, guid: 0370ede8d2379894ea6c17fb80728477, type: 2}
 --- !u!114 &1091127567
 MonoBehaviour:

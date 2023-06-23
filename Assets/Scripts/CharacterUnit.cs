@@ -31,7 +31,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     //===============HEALTH===============
     //[HideInInspector]
     public float health;
-    public bool stunned;
 
     //===============ATTACK===============
     [HideInInspector]
@@ -41,8 +40,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public AttackType attackType;
     public float attackRange = 1f;
-    [HideInInspector]
-    public float triggerAttackRange;
 
     private float lastAttackTime;
 
@@ -70,18 +67,17 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         this.attackSpeed = unit.attackSpeed;
         this.attackType = unit.attackType;
         this.attackRange = unit.attackRange;
-        this.triggerAttackRange = unit.triggerAttackRange;
         
         this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
 
     private void FixedUpdate()
     {
-        if (!enemies && alive && !stunned)
+        if (!enemies && alive)
         {
             Run();
         }
-        else if (enemies && alive && !stunned)
+        else if (enemies && alive)
         {
             Attack();
         }
@@ -117,8 +113,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         if (Random.Range(0, 100) <= 5) //Critical damage
         {
             health -= damage * 0.5f;
-            rb.AddForce(-direction * 100f);
-            stunned = true;
+            rb.AddForce(-direction * 0.15f);
             animator.SetTrigger("Hit");
         }
 
@@ -165,12 +160,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         //}
     }
 
-    public void UnStun()
-    {
-        stunned = false;
-        //rb.velocity = Vector2.zero;
-    }
-
     public IEnumerator Death() {
         yield return new WaitForSeconds(5);
 
@@ -179,7 +168,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
     private void FindEnemies()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange * triggerAttackRange);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange * 0.7f);
 
         foreach (Collider2D enemy in hitEnemies)
         {
