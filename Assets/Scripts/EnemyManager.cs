@@ -27,6 +27,8 @@ public class EnemyManager : PlayerManager
         base.Start();
 
         StartCoroutine(SpawnRandom());
+        //SpawnUnit(0);
+        //SpawnUnit(1);
     }
     private void FixedUpdate()
     {
@@ -40,7 +42,6 @@ public class EnemyManager : PlayerManager
             var randomIndex = rnd.Next(0, units.Length);
             var randomUnit = units[randomIndex];
 
-            print(randomIndex);
             yield return new WaitUntil(() => mana >= randomUnit.manaCost);
 
             SpawnUnit(randomIndex);
