@@ -9,10 +9,11 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public Team team;
 
+    public CharacterAnimationController characterAnimationController;
 
-    [HideInInspector]
+    //[HideInInspector]
     //public List<GameObject> enemies = new List<GameObject>();
-    public bool enemies;
+
     [HideInInspector]
     public int manaCost;
     [HideInInspector]
@@ -26,7 +27,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public Vector2 direction = Vector2.right; //set while spawn
     [HideInInspector]
-    private bool alive = true;
+    public bool alive = true;
 
     //===============HEALTH===============
     //[HideInInspector]
@@ -37,6 +38,8 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public float attackSpeed;
     [HideInInspector]
+    public bool isAttacking;
+    [HideInInspector]
     public float attack;
     [HideInInspector]
     public AttackType attackType;
@@ -44,7 +47,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public float triggerAttackRange;
 
-    private float lastAttackTime;
 
     // Start is called before the first frame update
     public void Initialize(Unit unit, int direction)
@@ -75,41 +77,24 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
 
-    private void FixedUpdate()
-    {
-        if (!enemies && alive && !stunned)
-        {
-            Run();
-        }
-        else if (enemies && alive && !stunned)
-        {
-            Attack();
-        }
-
-        FindEnemies();
-    }
-
     private void Update()
     {
-        animator.SetFloat("Run", Mathf.Abs(rb.velocity.x));
+        Run();
+        Attack();
     }
 
     private void Run()
     {
-        animator.SetBool("Run", true);
-        rb.velocity = direction * moveSpeed;
+        if (!isAttacking && alive && !stunned)
+        {
+            rb.velocity = direction * moveSpeed;
+        }
     }
 
-    public void Attack()
-    {
-        if (Time.time - lastAttackTime < attackSpeed)
-            return;
 
-        animator.SetTrigger("Attack");
-        lastAttackTime = Time.time;
-    }
 
     //HEALTH
+
     public void DealDamage(float damage)
     {
         health -= damage;
@@ -117,23 +102,18 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         if (Random.Range(0, 100) <= 5) //Critical damage
         {
             health -= damage * 0.5f;
-            rb.AddForce(-direction * 100f);
-            stunned = true;
-            animator.SetTrigger("Hit");
+            StartCoroutine(Stun());
         }
 
         if (health <= 0)
         {
+            characterAnimationController.Death();
             GetComponent<BoxCollider2D>().enabled = false;
             alive = false;
             rb.velocity = Vector2.zero;
             EnemyService.RewardMana(team, manaCost / 2);
-            animator.SetTrigger("Death");
             StartCoroutine(Death());
         }
-
-        
-
     }
 
     public Team GetTeam()
@@ -165,19 +145,13 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         //}
     }
 
-    public void UnStun()
-    {
-        stunned = false;
-        rb.velocity = Vector2.zero;
-    }
-
     public IEnumerator Death() {
         yield return new WaitForSeconds(5);
 
         Destroy(gameObject);
     }
 
-    private void FindEnemies()
+    private void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange * triggerAttackRange);
 
@@ -185,13 +159,23 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         {
 
             var attackable = enemy.GetComponent<IAttackable>();
-            if (attackable != null && !attackable.GetTeam().Equals(team))
+            if (attackable != null && !attackable.GetTeam().Equals(team) && alive && !stunned)
             {
+                isAttacking = true;
                 rb.velocity = Vector2.zero;
-                enemies = true;
                 return;
             }
         }
-        enemies = false;
+        isAttacking = false;
+    }
+
+    private IEnumerator Stun()
+    {
+        characterAnimationController.Hit();
+        stunned = true;
+        rb.AddForce(-direction * 100f);
+        yield return new WaitForSeconds(0.5f);
+        rb.velocity = Vector2.zero;
+        stunned = false;
     }
 }
