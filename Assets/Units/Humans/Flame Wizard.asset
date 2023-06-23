@@ -16,11 +16,12 @@ MonoBehaviour:
   icon: {fileID: 0}
   team: 1
   attackType: 2
-  manaCost: 25
-  attack: 4
-  attackSpeed: 0.7
+  manaCost: 35
+  attack: 7
+  attackSpeed: 1
   moveSpeed: 2
-  health: 200
+  health: 180
   cooldown: 50
-  attackRange: 1.5
+  attackRange: 3.2
+  triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: 4bca1a700b4b85d42bc85449c24d3484, type: 2}
