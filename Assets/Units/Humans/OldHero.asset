@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: OldHero
   m_EditorClassIdentifier: 
   name: Old Hero
+  icon: {fileID: 0}
   team: 1
-  manaCost: 25
-  attack: 5
+  attackType: 0
+  manaCost: 35
+  attack: 6
   attackSpeed: 1
   moveSpeed: 1
   health: 350
   cooldown: 10
+  attackRange: 1.5
   runtimeAnimatorController: {fileID: 9100000, guid: 5c0645ea722912d488ba551f016688d8, type: 2}

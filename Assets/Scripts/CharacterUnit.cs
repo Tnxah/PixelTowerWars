@@ -11,7 +11,8 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
 
     [HideInInspector]
-    public List<GameObject> enemies = new List<GameObject>();
+    //public List<GameObject> enemies = new List<GameObject>();
+    public bool enemies;
     [HideInInspector]
     public int manaCost;
     [HideInInspector]
@@ -38,6 +39,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     public float attack;
     [HideInInspector]
     public AttackType attackType;
+    public float attackRange = 1f;
 
     private float lastAttackTime;
 
@@ -64,20 +66,23 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         this.attack = unit.attack;
         this.attackSpeed = unit.attackSpeed;
         this.attackType = unit.attackType;
+        this.attackRange = unit.attackRange;
         
         this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
 
     private void FixedUpdate()
     {
-        if (enemies.Count <= 0 && alive)
+        if (!enemies && alive)
         {
             Run();
         }
-        else if (enemies.Count > 0 && alive)
+        else if (enemies && alive)
         {
             Attack();
         }
+
+        FindEnemies();
     }
 
     private void Update()
@@ -134,30 +139,48 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        var attackable = other.GetComponent<IAttackable>();
-        if (attackable == null) return;
+        //var attackable = other.GetComponent<IAttackable>();
+        //if (attackable == null) return;
 
-        if (!other.GetComponent<IAttackable>().GetTeam().Equals(team))
-        {
-            enemies.Add(other.gameObject);
-            rb.velocity = Vector2.zero;
-        }
+        //if (!other.GetComponent<IAttackable>().GetTeam().Equals(team))
+        //{
+        //    enemies.Add(other.gameObject);
+        //    rb.velocity = Vector2.zero;
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var attackable = collision.GetComponent<IAttackable>();
-        if (attackable == null) return;
+        //var attackable = collision.GetComponent<IAttackable>();
+        //if (attackable == null) return;
 
-        if (!collision.GetComponent<IAttackable>().GetTeam().Equals(team) && enemies.Contains(collision.gameObject))
-        {
-            enemies.Remove(collision.gameObject);
-        }
+        //if (!collision.GetComponent<IAttackable>().GetTeam().Equals(team) && enemies.Contains(collision.gameObject))
+        //{
+        //    enemies.Remove(collision.gameObject);
+        //}
     }
 
     public IEnumerator Death() {
         yield return new WaitForSeconds(5);
 
         Destroy(gameObject);
+    }
+
+    private void FindEnemies()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange * 0.7f);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+
+            var attackable = enemy.GetComponent<IAttackable>();
+            if (attackable != null && !attackable.GetTeam().Equals(team))
+            {
+                rb.velocity = Vector2.zero;
+                enemies = true;
+                return;
+            }
+        }
+        enemies = false;
     }
 }

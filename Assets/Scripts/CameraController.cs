@@ -29,11 +29,9 @@ public class CameraController : MonoBehaviour
     }
     void FixedUpdate()
     {
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR
         StandaloneCameraControl();
-#endif
-
-#if UNITY_ANDROID
+#elif UNITY_ANDROID
         AndroidCameraControl();
 #endif
     }

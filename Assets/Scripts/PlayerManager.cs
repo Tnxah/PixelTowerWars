@@ -5,8 +5,8 @@ public class PlayerManager : MonoBehaviour
 {
     public Tower tower;
 
-    public static PlayerManager instance;
-
+    
+    [SerializeField]
     protected int mana = 25;
 
     protected int manaPerSecond;
@@ -18,11 +18,6 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
         this.units = towerUnit.units;
 
         this.maxMana = towerUnit.maxMana;

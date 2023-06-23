@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class MainPlayerManager : PlayerManager
 {
+    public static PlayerManager instance;
+
     public Transform unitsHolder;
     public GameObject unitButtonPrefab;
 
     protected override void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         base.Awake();
         InitializeButtons();
     }

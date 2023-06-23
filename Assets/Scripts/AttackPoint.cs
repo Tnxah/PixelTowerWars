@@ -10,7 +10,7 @@ public class AttackPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 1f, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, characterUnit.attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -28,6 +28,6 @@ public class AttackPoint : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.DrawWireSphere(transform.position, characterUnit.attackRange);
     }
 }
