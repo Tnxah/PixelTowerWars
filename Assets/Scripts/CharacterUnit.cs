@@ -121,30 +121,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         return team;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
-        //var attackable = other.GetComponent<IAttackable>();
-        //if (attackable == null) return;
-
-        //if (!other.GetComponent<IAttackable>().GetTeam().Equals(team))
-        //{
-        //    enemies.Add(other.gameObject);
-        //    rb.velocity = Vector2.zero;
-        //}
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //var attackable = collision.GetComponent<IAttackable>();
-        //if (attackable == null) return;
-
-        //if (!collision.GetComponent<IAttackable>().GetTeam().Equals(team) && enemies.Contains(collision.gameObject))
-        //{
-        //    enemies.Remove(collision.gameObject);
-        //}
-    }
-
     public IEnumerator Death() {
         yield return new WaitForSeconds(5);
 
