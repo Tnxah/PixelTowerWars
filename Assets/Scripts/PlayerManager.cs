@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     protected int maxMana;
 
     public TowerUnit towerUnit;
-    protected Unit[] units;
+    public Unit[] units;
 
 
     protected virtual void Awake()
@@ -41,6 +41,11 @@ public class PlayerManager : MonoBehaviour
     {
         this.mana += mana;
         this.mana = Mathf.Clamp(this.mana, 0, maxMana);
+    }
+
+    public int GetMana()
+    {
+        return mana;
     }
 
     private IEnumerator PerSecondCoroutine()

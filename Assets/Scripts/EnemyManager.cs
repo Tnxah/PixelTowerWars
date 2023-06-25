@@ -13,6 +13,8 @@ public class EnemyManager : PlayerManager
     
     private Random rnd = new Random();
 
+    private float[] lastSpawn;
+
     protected override void Awake()
     {
         if (instance == null)
@@ -20,12 +22,14 @@ public class EnemyManager : PlayerManager
             instance = this;
         }
 
+        
+
         base.Awake();
     }
     protected override void Start()
     {
         base.Start();
-
+        lastSpawn = new float[units.Length];
         StartCoroutine(SpawnRandom());
         //SpawnUnit(0);
         //SpawnUnit(1);
@@ -42,9 +46,10 @@ public class EnemyManager : PlayerManager
             var randomIndex = rnd.Next(0, units.Length);
             var randomUnit = units[randomIndex];
 
-            yield return new WaitUntil(() => mana >= randomUnit.manaCost);
+            yield return new WaitUntil(() => mana >= randomUnit.manaCost && Time.time - lastSpawn[randomIndex] >= units[randomIndex].cooldown);
 
             SpawnUnit(randomIndex);
+            lastSpawn[randomIndex] = Time.time;
         }
         
     }
