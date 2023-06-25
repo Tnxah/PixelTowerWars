@@ -149,7 +149,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     {
         characterAnimationController.Hit();
         stunned = true;
-        rb.AddForce(-direction * 100f);
+        rb.AddForce(-direction * 50f);
         yield return new WaitForSeconds(0.5f);
         rb.velocity = Vector2.zero;
         stunned = false;
