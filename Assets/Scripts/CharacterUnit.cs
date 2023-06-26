@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterUnit : MonoBehaviour, IAttackable
@@ -82,6 +83,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         Run();
         Attack();
     }
+
 
     private void Run()
     {

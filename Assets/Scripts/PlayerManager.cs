@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     public TowerUnit towerUnit;
     public Unit[] units;
 
+    public delegate void OnMana();
+    public OnMana onManaChanged;
+
 
     protected virtual void Awake()
     {
@@ -41,8 +44,16 @@ public class PlayerManager : MonoBehaviour
     {
         this.mana += mana;
         this.mana = Mathf.Clamp(this.mana, 0, maxMana);
+
+        onManaChanged?.Invoke();
     }
 
+    public virtual void DecreaseMana(int mana)
+    {
+        this.mana -= mana;
+
+        onManaChanged?.Invoke();
+    }
     public int GetMana()
     {
         return mana;
@@ -69,7 +80,7 @@ public class PlayerManager : MonoBehaviour
 
         if (mana < unit.manaCost) return;
 
-        mana -= unit.manaCost;
+        DecreaseMana(unit.manaCost);
 
         tower.SpawnUnit(unit);
     }

@@ -11,6 +11,10 @@ public class MainPlayerManager : PlayerManager
     public Transform unitsHolder;
     public GameObject unitButtonPrefab;
 
+    public TextMeshProUGUI manaText;
+
+
+
     protected override void Awake()
     {
         if (instance == null)
@@ -19,6 +23,8 @@ public class MainPlayerManager : PlayerManager
         }
 
         base.Awake();
+
+        onManaChanged += RefreshManaText;
         InitializeButtons();
     }
 
@@ -32,5 +38,15 @@ public class MainPlayerManager : PlayerManager
 
             button.GetComponent<SpawnButton>().Initialize(this, index);
         }
+    }
+
+    protected override void PerSecond()
+    {
+        base.PerSecond();
+    }
+
+    public void RefreshManaText()
+    {
+        manaText.text = mana.ToString();
     }
 }

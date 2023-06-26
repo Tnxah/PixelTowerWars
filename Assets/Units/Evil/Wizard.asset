@@ -21,7 +21,7 @@ MonoBehaviour:
   attackSpeed: 1
   moveSpeed: 2
   health: 250
-  cooldown: 8
+  cooldown: 5
   attackRange: 2.2
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: 8348b741298689c4e95ccb5f830250e1, type: 2}
