@@ -22,4 +22,6 @@ public class Unit : ScriptableObject
     public float triggerAttackRange = 0.7f;
 
     public RuntimeAnimatorController runtimeAnimatorController;
+
+    public List<UnitUpgrade> upgrades;
 }

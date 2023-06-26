@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
         height = 2f * cam.orthographicSize;
         width = height * cam.aspect;
-        var halfMapSize = GameManager.instance.mapSize / 2;
+        var halfMapSize = BattleManager.instance.mapSize / 2;
         leftCamLimitPosition = -halfMapSize + width / 2;
         rightCamLimitPosition = halfMapSize - width / 2;
     }
