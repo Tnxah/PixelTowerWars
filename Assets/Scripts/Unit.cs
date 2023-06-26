@@ -7,6 +7,8 @@ public class Unit : ScriptableObject
 {
     public new string name;
 
+    public int level = 1;
+
     public Sprite icon;
 
     public Team team;

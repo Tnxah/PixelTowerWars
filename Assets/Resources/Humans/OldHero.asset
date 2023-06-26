@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OldHero
   m_EditorClassIdentifier: 
   name: Old Hero
+  level: 1
   icon: {fileID: 0}
   team: 1
   attackType: 0
@@ -25,3 +26,11 @@ MonoBehaviour:
   attackRange: 1.5
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: b567184afb6882f48afe332c3d14d2bf, type: 2}
+  upgrades:
+  - level: 2
+    health: 200
+    moveSpeed: 0
+    manaCost: 0
+    damage: 1
+    cooldown: 0
+    upgradeCost: 100
