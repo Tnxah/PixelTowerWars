@@ -27,10 +27,24 @@ MonoBehaviour:
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: 8348b741298689c4e95ccb5f830250e1, type: 2}
   upgrades:
+  - level: 1
+    health: 250
+    moveSpeed: 2
+    manaCost: 25
+    damage: 15
+    cooldown: 5
+    upgradeCost: 100
   - level: 2
     health: 350
     moveSpeed: 2
     manaCost: 25
     damage: 18
     cooldown: 5
-    upgradeCost: 100
+    upgradeCost: 200
+  - level: 3
+    health: 450
+    moveSpeed: 2
+    manaCost: 25
+    damage: 20
+    cooldown: 5
+    upgradeCost: 300

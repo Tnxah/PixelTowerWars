@@ -11,4 +11,10 @@ public class EnemyService : MonoBehaviour
          else
             EnemyManager.instance.AddMana(mana);
     }
+
+    public static void RewardMoney(Team team, int money)
+    {
+        if (!team.Equals(MainPlayerManager.instance.tower.team))
+            GameManager.instance.SetMoney(GameManager.instance.GetMoney() + money);
+    }
 }

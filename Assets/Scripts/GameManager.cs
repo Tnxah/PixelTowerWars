@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private int money = 1000;
+    public int money;
 
     private List<Unit> units;
 
@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        DontDestroyOnLoad(gameObject);
         units = new List<Unit>();
 
         foreach (Object loadedObject in Resources.LoadAll("Evil/"))

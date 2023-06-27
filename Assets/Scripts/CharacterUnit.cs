@@ -114,6 +114,8 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             alive = false;
             rb.velocity = Vector2.zero;
             EnemyService.RewardMana(team, manaCost / 2);
+            EnemyService.RewardMoney(team, 1);
+
             StartCoroutine(Death());
         }
     }

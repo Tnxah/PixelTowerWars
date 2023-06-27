@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     public Transform buttonsHolder;
     public GameObject buyButtonPrefab;
+    public TextMeshProUGUI money;
 
     public GameObject shop;
     public GameObject credits;
     public GameObject buttons;
+
+    public void StartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Battlefield");
+    }
 
     public void SetButtons(bool state)
     {
@@ -50,5 +57,10 @@ public class UIManager : MonoBehaviour
 
             button.GetComponent<BuyButton>().Initialize(index);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        money.text = GameManager.instance.money.ToString();
     }
 }

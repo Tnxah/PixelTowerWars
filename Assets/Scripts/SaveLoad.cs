@@ -25,12 +25,12 @@ public static class SaveLoad
         }
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream fileStream = new FileStream(str, FileMode.Open);
-        SaveData saveData = binaryFormatter.Deserialize(fileStream) as SaveData;
+        data = binaryFormatter.Deserialize(fileStream) as SaveData;
         fileStream.Close();
 
         ApplyLoad();
 
-        return saveData;
+        return data;
     }
 
     public static void Save()
@@ -61,7 +61,7 @@ public static class SaveLoad
 
         foreach (var unit in GameManager.instance.GetUnits())
         {
-            data.unitslevels.Add(unit.name, unit.level);
+            data.unitslevels[unit.name] = unit.level;
         }
     }
 
@@ -73,5 +73,7 @@ public static class SaveLoad
         {
             UnitUpgrader.UpgradeUnit(unit.Key, unit.Value);
         }
+
+        Debug.Log("Saves applied");
     }
 }

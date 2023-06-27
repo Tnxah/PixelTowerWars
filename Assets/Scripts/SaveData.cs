@@ -8,4 +8,9 @@ public class SaveData
     public Dictionary<string, int> unitslevels;
 
     public int completedlevels;
+
+    public SaveData()
+    {
+        unitslevels = new Dictionary<string, int>();
+    }
 }

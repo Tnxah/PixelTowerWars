@@ -28,6 +28,10 @@ public class Tower : MonoBehaviour, IAttackable
         if (health <= 0)
         {
             GetComponent<BoxCollider2D>().enabled = false;
+            EnemyService.RewardMoney(team, 100);
+
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
             //animator.SetTrigger("Destroy");
         }
