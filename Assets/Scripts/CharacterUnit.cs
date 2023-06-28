@@ -18,7 +18,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public int manaCost;
     [HideInInspector]
-    public int moveSpeed;
+    public float moveSpeed;
     [HideInInspector]
     public float cooldown;
     [HideInInspector]

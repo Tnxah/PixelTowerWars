@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
-        money = 1200;
     }
 
     private void LoadUnits()

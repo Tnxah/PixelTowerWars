@@ -18,10 +18,10 @@ MonoBehaviour:
   team: 2
   attackType: 2
   manaCost: 25
-  attack: 15
+  attack: 20
   attackSpeed: 1
   moveSpeed: 2
-  health: 250
+  health: 450
   cooldown: 5
   attackRange: 2.2
   triggerAttackRange: 0.7

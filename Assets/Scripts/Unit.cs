@@ -17,7 +17,7 @@ public class Unit : ScriptableObject
     public int manaCost;
     public float attack;
     public float attackSpeed;
-    public int moveSpeed;
+    public float moveSpeed;
     public int health;
     public float cooldown;
     public float attackRange;

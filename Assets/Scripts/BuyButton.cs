@@ -14,6 +14,10 @@ public class BuyButton : MonoBehaviour
     private Image unitImage;
     [SerializeField]
     private TextMeshProUGUI upgradeCostText;
+    [SerializeField]
+    private TextMeshProUGUI levelText;
+    [SerializeField]
+    private GameObject levelBackground;
 
     public void Initialize(int unitIndex)
     {
@@ -31,7 +35,19 @@ public class BuyButton : MonoBehaviour
 
     public void RefreshButton()
     {
-        if (unit == null || unit.level >= unit.upgrades.Count) return;
+        if (unit == null) return;
+
+        if (unit.level == 0) levelBackground.SetActive(false);
+        else
+        {
+            levelBackground.SetActive(true);
+            levelText.text = unit.level.ToString();
+        }
+
+        if (unit.level >= unit.upgrades.Count) {
+            upgradeCostText.text = "Sold out";
+            return;
+        }
 
         upgrade = unit.upgrades.Find(up => up.level == unit.level + 1);
 
@@ -39,8 +55,8 @@ public class BuyButton : MonoBehaviour
         {
             button.interactable = false;
             return;
-        }       
-        
+        }
+
         upgradeCostText.text = upgrade.upgradeCost.ToString();
 
         if(IsEnoughMoney())
