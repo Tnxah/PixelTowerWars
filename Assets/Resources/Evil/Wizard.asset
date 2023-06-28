@@ -33,7 +33,7 @@ MonoBehaviour:
     manaCost: 25
     damage: 15
     cooldown: 5
-    upgradeCost: 100
+    upgradeCost: 1000
   - level: 2
     health: 350
     moveSpeed: 2

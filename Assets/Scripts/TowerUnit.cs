@@ -9,8 +9,6 @@ public class TowerUnit : ScriptableObject
 
     public Team team;
 
-    public Unit[] units;
-
     public int towerHealth;
     public int manaPerSecond;
     public int maxMana;

@@ -30,7 +30,7 @@ public class MainPlayerManager : PlayerManager
 
     private void InitializeButtons()
     {
-        for (int i = 0; i < units.Length; i++)
+        for (int i = 0; i < units.Count; i++)
         {
             int index = i;
 

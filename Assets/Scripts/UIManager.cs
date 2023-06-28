@@ -13,6 +13,13 @@ public class UIManager : MonoBehaviour
     public GameObject credits;
     public GameObject buttons;
 
+    private void Start()
+    {
+        GameManager.instance.onMoneyChangedCallback += () => money.text = GameManager.instance.money.ToString();
+
+        InitializeShopButtons();
+    }
+
     public void StartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Battlefield");
@@ -32,11 +39,9 @@ public class UIManager : MonoBehaviour
         if (state)
         {
             SetButtons(false);
+            money.text = GameManager.instance.money.ToString();
         }
-        shop.SetActive(state);
-
-        if (state)
-            InitializeButtons();
+        shop.SetActive(state);            
     }
 
     //public void SetCredits(bool state)
@@ -45,7 +50,7 @@ public class UIManager : MonoBehaviour
     //    credits.SetActive(state);
     //}
 
-    private void InitializeButtons()
+    private void InitializeShopButtons()
     {
         print(GameManager.instance.GetUnits() == null);
 
@@ -57,10 +62,5 @@ public class UIManager : MonoBehaviour
 
             button.GetComponent<BuyButton>().Initialize(index);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        money.text = GameManager.instance.money.ToString();
     }
 }

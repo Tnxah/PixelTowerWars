@@ -8,76 +8,60 @@ public class BuyButton : MonoBehaviour
 {
     private GameManager gameManager;
     private Unit unit;
-    private UnitUpgrade up;
+    private UnitUpgrade upgrade;
+    private Button button;
+    [SerializeField]
+    private Image unitImage;
+    [SerializeField]
+    private TextMeshProUGUI upgradeCostText;
 
-
-    private int id;
     public void Initialize(int unitIndex)
     {
-        id = unitIndex;
-
-        GetComponent<Button>().interactable = false;
-
         gameManager = GameManager.instance;
-
+        button = GetComponentInChildren<Button>();
         unit = gameManager.GetUnits()[unitIndex];
-        up = unit.upgrades.Find(up => up.level == unit.level + 1);
 
-        if (up == null){
-            Destroy(gameObject);
-            return; 
-        }
+        button.interactable = false;
 
-        GetComponent<Button>().onClick.AddListener(() => Buy());
-        GetComponentsInChildren<Image>()[1].sprite = unit?.icon;
-        GetComponentInChildren<TextMeshProUGUI>().text = up.upgradeCost.ToString();
+        button.onClick.AddListener(() => Buy());
+        unitImage.sprite = unit.icon;
 
-        IsEnoughMoney();
-
-        gameObject.SetActive(true);
+        RefreshButton();
     }
 
-    private void OnEnable()
+    public void RefreshButton()
     {
-        IsEnoughMoney();
-    }
+        if (unit == null || unit.level >= unit.upgrades.Count) return;
 
-    private bool IsEnoughMoney()
-    {
-        var isEnough = gameManager.GetMoney() >= up.upgradeCost ? true : false;
+        upgrade = unit.upgrades.Find(up => up.level == unit.level + 1);
 
-        GetComponent<Button>().interactable = isEnough;
-        return isEnough;
+        if (upgrade == null)
+        {
+            button.interactable = false;
+            return;
+        }       
+        
+        upgradeCostText.text = upgrade.upgradeCost.ToString();
+
+        if(IsEnoughMoney())
+            button.interactable = true;
     }
 
     private void Buy()
     {
-        UnitUpgrader.UpgradeUnit(unit.name, up.level);
-        GetComponent<Button>().interactable = false;
-        gameManager.SetMoney(gameManager.GetMoney() - up.upgradeCost);
-        if (gameManager.GetMoney() >= up.upgradeCost)
-            GetComponent<Button>().interactable = true;
-            
-        up = unit.upgrades.Find(up => up.level == unit.level + 1);
+        UnitUpgrader.UpgradeUnit(unit.name, upgrade.level);
+        gameManager.money -= upgrade.upgradeCost;
+        button.interactable = false;
 
-        if (up == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        GetComponentInChildren<TextMeshProUGUI>().text = up.upgradeCost.ToString();
-
-
-        if (IsReadyUpdate())
-        {
-            IsEnoughMoney();
-        }
-
+        RefreshButton();
     }
 
-    private bool IsReadyUpdate()
+    private bool IsEnoughMoney()
     {
-        return unit.level < unit.upgrades.Count ? true : false;
+        return gameManager.money >= upgrade.upgradeCost ? true : false;
+    }
+    private void OnEnable()
+    {
+        RefreshButton();
     }
 }

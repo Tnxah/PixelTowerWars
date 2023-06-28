@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public abstract class PlayerManager : MonoBehaviour
 {
     public Tower tower;
 
@@ -13,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     protected int maxMana;
 
     public TowerUnit towerUnit;
-    public Unit[] units;
+    public List<Unit> units;
 
     public delegate void OnMana();
     public OnMana onManaChanged;
@@ -21,7 +22,14 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        this.units = towerUnit.units;
+        if (towerUnit.team.Equals(Team.Evil))
+        {
+            FillUnits(GameManager.instance.GetUnits());
+        }
+        else
+        {
+            FillUnits(GameManager.instance.GetEnemies());
+        }
 
         this.maxMana = towerUnit.maxMana;
         this.manaPerSecond = towerUnit.manaPerSecond;
@@ -66,6 +74,15 @@ public class PlayerManager : MonoBehaviour
             PerSecond();
 
             yield return new WaitForSeconds(1);
+        }
+    }
+
+    private void FillUnits(List<Unit> unitList)
+    {
+        foreach (var unit in unitList)
+        {
+            if (unit.level > 0)
+                units.Add(unit);
         }
     }
 

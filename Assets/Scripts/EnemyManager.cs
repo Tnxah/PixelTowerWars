@@ -29,7 +29,7 @@ public class EnemyManager : PlayerManager
     protected override void Start()
     {
         base.Start();
-        lastSpawn = new float[units.Length];
+        lastSpawn = new float[units.Count];
         StartCoroutine(SpawnRandom());
         //SpawnUnit(0);
         //SpawnUnit(1);
@@ -43,7 +43,7 @@ public class EnemyManager : PlayerManager
     {
         while (true)
         {
-            var randomIndex = rnd.Next(0, units.Length);
+            var randomIndex = rnd.Next(0, units.Count);
             var randomUnit = units[randomIndex];
 
             yield return new WaitUntil(() => mana >= randomUnit.manaCost && Time.time - lastSpawn[randomIndex] >= units[randomIndex].cooldown);

@@ -7,20 +7,42 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int money;
+    private int _money;
 
-    private List<Unit> units;
+    public int money
+    {
+        get { return _money; }
+        set 
+        { 
+            _money = value;
+            onMoneyChangedCallback?.Invoke();
+        }
+    }
+
+    public delegate void OnMoney();
+    public OnMoney onMoneyChangedCallback;
+
+
+    private List<Unit> units = new List<Unit>();
+    private List<Unit> enemyUnits = new List<Unit>();
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+
+            LoadUnits();
+            SaveLoad.Load();
         }
 
         DontDestroyOnLoad(gameObject);
-        units = new List<Unit>();
 
+        money = 1200;
+    }
+
+    private void LoadUnits()
+    {
         foreach (Object loadedObject in Resources.LoadAll("Evil/"))
         {
             if (loadedObject is Unit unit)
@@ -28,22 +50,23 @@ public class GameManager : MonoBehaviour
                 units.Add(unit);
             }
         }
-        SaveLoad.Load();
+
+        foreach (Object loadedObject in Resources.LoadAll("Humans/"))
+        {
+            if (loadedObject is Unit unit)
+            {
+                enemyUnits.Add(unit);
+            }
+        }
     }
 
     public List<Unit> GetUnits()
     {
         return units;
     }
-
-    public void SetMoney(int amount)
+    public List<Unit> GetEnemies()
     {
-        this.money = amount;
-    }
-
-    public int GetMoney()
-    {
-        return money;
+        return enemyUnits;
     }
 
     private void OnApplicationQuit()

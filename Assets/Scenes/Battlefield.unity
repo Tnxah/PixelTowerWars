@@ -5225,6 +5225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9125099316981933248, guid: 3323d5f1741c5bd4698749e8aa05f798, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9125099316981933251, guid: 3323d5f1741c5bd4698749e8aa05f798, type: 3}
       propertyPath: m_Size.x
       value: 10.24

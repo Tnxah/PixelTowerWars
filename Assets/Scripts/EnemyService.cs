@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyService : MonoBehaviour
@@ -15,6 +13,6 @@ public class EnemyService : MonoBehaviour
     public static void RewardMoney(Team team, int money)
     {
         if (!team.Equals(MainPlayerManager.instance.tower.team))
-            GameManager.instance.SetMoney(GameManager.instance.GetMoney() + money);
+            GameManager.instance.money += money;
     }
 }

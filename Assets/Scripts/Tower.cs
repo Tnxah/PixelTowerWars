@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour, IAttackable
     {
         this.team = unit.team;
         this.health = unit.towerHealth;
+
         //this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
 

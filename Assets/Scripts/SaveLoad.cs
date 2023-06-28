@@ -57,7 +57,7 @@ public static class SaveLoad
     {
         if (data == null) data = new SaveData();
 
-        data.money = GameManager.instance.GetMoney();
+        data.money = GameManager.instance.money;
 
         foreach (var unit in GameManager.instance.GetUnits())
         {
@@ -67,7 +67,7 @@ public static class SaveLoad
 
     private static void ApplyLoad()
     {
-        GameManager.instance.SetMoney(data.money);
+        GameManager.instance.money = data.money;
 
         foreach (KeyValuePair<string, int> unit in data.unitslevels)
         {
