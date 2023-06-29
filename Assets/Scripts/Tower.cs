@@ -28,13 +28,7 @@ public class Tower : MonoBehaviour, IAttackable
 
         if (health <= 0)
         {
-            GetComponent<BoxCollider2D>().enabled = false;
-            EnemyService.RewardMoney(team, 100);
-
-
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-
-            //animator.SetTrigger("Destroy");
+            Death();
         }
 
     }
@@ -52,5 +46,22 @@ public class Tower : MonoBehaviour, IAttackable
 
         character.GetComponent<CharacterUnit>().Initialize(unit, (int)transform.lossyScale.x);
         character.GetComponent<SpriteRenderer>().sortingOrder = (int)(-randomPosition.y * 100f);
+    }
+
+    private void Death()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        if (!team.Equals(MainPlayerManager.instance.tower.team) && GameManager.instance.difficulty.stageNumber == GameManager.instance.completedLevels)
+        {
+            GameManager.instance.completedLevels++;
+        }
+
+        EnemyService.RewardMoney(team, GameManager.instance.difficulty.moneyReward);
+
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+
+        //animator.SetTrigger("Destroy");
     }
 }

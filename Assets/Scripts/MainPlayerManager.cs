@@ -22,6 +22,8 @@ public class MainPlayerManager : PlayerManager
             instance = this;
         }
 
+        FillUnits();
+
         base.Awake();
 
         onManaChanged += RefreshManaText;
@@ -48,5 +50,14 @@ public class MainPlayerManager : PlayerManager
     public void RefreshManaText()
     {
         manaText.text = mana.ToString();
+    }
+
+    private void FillUnits()
+    {
+        foreach (var unit in GameManager.instance.GetUnits())
+        {
+            if (unit.level > 0)
+                units.Add(unit);
+        }
     }
 }

@@ -10,7 +10,7 @@ public class TowerUnit : ScriptableObject
     public Team team;
 
     public int towerHealth;
-    public int manaPerSecond;
+    public float manaPerSecond;
     public int maxMana;
 
     public RuntimeAnimatorController runtimeAnimatorController;

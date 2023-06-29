@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI money;
 
     public GameObject shop;
+    public GameObject stages;
     public GameObject credits;
     public GameObject buttons;
 
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Battlefield");
+        SetStages(true);
     }
 
     public void SetButtons(bool state)
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour
         if (state)
         {
             SetShop(false);
+            SetStages(false);
         }
         buttons.SetActive(state);
     }
@@ -44,6 +46,15 @@ public class UIManager : MonoBehaviour
         shop.SetActive(state);            
     }
 
+    public void SetStages(bool state)
+    {
+        if (state)
+        {
+            SetButtons(false);
+        }
+        stages.SetActive(state);
+    }
+
     //public void SetCredits(bool state)
     //{
     //    CloseEverithing();
@@ -52,8 +63,6 @@ public class UIManager : MonoBehaviour
 
     private void InitializeShopButtons()
     {
-        print(GameManager.instance.GetUnits() == null);
-
         for (int i = 0; i < GameManager.instance.GetUnits().Count; i++)
         {
             int index = i;

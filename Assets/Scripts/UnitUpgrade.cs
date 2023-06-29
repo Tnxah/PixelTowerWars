@@ -5,11 +5,13 @@ public class UnitUpgrade
     public int level;
 
     public int health;
-    public int moveSpeed;
+    public float moveSpeed;
     public int manaCost;
 
-    public float damage;
+    public float attack;
     public float cooldown;
+
+    public AttackType attackType;
 
     public int upgradeCost; 
 }

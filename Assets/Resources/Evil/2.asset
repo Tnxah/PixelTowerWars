@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  name: Skeleton
+  level: 0
+  icon: {fileID: 1048562070, guid: c22b25b31ead73a4db4d234d04aeb318, type: 3}
+  team: 2
+  attackType: 2
+  manaCost: 15
+  attack: 10
+  attackSpeed: 1
+  moveSpeed: 0.8
+  health: 100
+  cooldown: 1
+  attackRange: 1.75
+  triggerAttackRange: 0.65
+  runtimeAnimatorController: {fileID: 9100000, guid: 0ea7248c574c27a4998cde6debc82cc5, type: 2}
+  upgrades:
+  - level: 1
+    health: 100
+    moveSpeed: 0.7
+    manaCost: 15
+    attack: 10
+    cooldown: 1
+    attackType: 2
+    upgradeCost: 800
+  - level: 2
+    health: 150
+    moveSpeed: 0.8
+    manaCost: 13
+    attack: 18
+    cooldown: 1
+    attackType: 2
+    upgradeCost: 500

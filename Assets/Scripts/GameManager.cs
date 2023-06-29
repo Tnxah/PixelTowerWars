@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public StageController stageController;
+    public EnemyTowerDifficulty difficulty;
+
+    public int completedLevels;
+
     private int _money;
 
     public int money
@@ -23,8 +28,8 @@ public class GameManager : MonoBehaviour
     public OnMoney onMoneyChangedCallback;
 
 
-    private List<Unit> units = new List<Unit>();
-    private List<Unit> enemyUnits = new List<Unit>();
+    public List<Unit> units = new List<Unit>();
+    public List<Unit> enemyUnits = new List<Unit>();
 
     private void Awake()
     {
@@ -77,22 +82,35 @@ public class UnitUpgrader
 {
     public static void UpgradeUnit(string name, int level)
     {
-
-        Debug.Log(name + " " + level);
-
         var unit = GameManager.instance.GetUnits().Find(unit => unit.name.Equals(name));
         if (unit == null) return;
         
         var upgrade = unit.upgrades.Find(up => up.level == level);
         if (upgrade == null) return;
 
-        Debug.Log(upgrade.damage);
-
-        unit.attack = upgrade.damage;
+        unit.attack = upgrade.attack;
         unit.moveSpeed = upgrade.moveSpeed;
         unit.cooldown = upgrade.cooldown;
         unit.manaCost = upgrade.manaCost;
         unit.health = upgrade.health;
         unit.level = upgrade.level;
+        unit.attackType = upgrade.attackType;
+    }
+
+    public static void UpgradeEnemyUnit(string name, int level)
+    {
+        var unit = GameManager.instance.GetEnemies().Find(unit => unit.name.Equals(name));
+        if (unit == null) return;
+        
+        var upgrade = unit.upgrades.Find(up => up.level == level);
+        if (upgrade == null) return;
+
+        unit.attack = upgrade.attack;
+        unit.moveSpeed = upgrade.moveSpeed;
+        unit.cooldown = upgrade.cooldown;
+        unit.manaCost = upgrade.manaCost;
+        unit.health = upgrade.health;
+        unit.level = upgrade.level;
+        unit.attackType = upgrade.attackType;
     }
 }

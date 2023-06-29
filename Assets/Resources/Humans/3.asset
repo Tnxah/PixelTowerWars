@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
-  m_Name: OldHero
+  m_Name: 3
   m_EditorClassIdentifier: 
   name: Old Hero
   level: 1
@@ -26,4 +26,28 @@ MonoBehaviour:
   attackRange: 1.5
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: b567184afb6882f48afe332c3d14d2bf, type: 2}
-  upgrades: []
+  upgrades:
+  - level: 0
+    health: 450
+    moveSpeed: 1
+    manaCost: 20
+    attack: 7
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 1
+    health: 450
+    moveSpeed: 1
+    manaCost: 20
+    attack: 7
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 2
+    health: 800
+    moveSpeed: 2
+    manaCost: 5
+    attack: 20
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 500

@@ -8,9 +8,9 @@ public abstract class PlayerManager : MonoBehaviour
 
     
     [SerializeField]
-    protected int mana = 25;
+    protected float mana;
 
-    protected int manaPerSecond;
+    protected float manaPerSecond;
     protected int maxMana;
 
     public TowerUnit towerUnit;
@@ -22,15 +22,6 @@ public abstract class PlayerManager : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if (towerUnit.team.Equals(Team.Evil))
-        {
-            FillUnits(GameManager.instance.GetUnits());
-        }
-        else
-        {
-            FillUnits(GameManager.instance.GetEnemies());
-        }
-
         this.maxMana = towerUnit.maxMana;
         this.manaPerSecond = towerUnit.manaPerSecond;
     }
@@ -48,7 +39,7 @@ public abstract class PlayerManager : MonoBehaviour
             AddMana(manaPerSecond);
     }
 
-    public virtual void AddMana(int mana)
+    public virtual void AddMana(float mana)
     {
         this.mana += mana;
         this.mana = Mathf.Clamp(this.mana, 0, maxMana);
@@ -62,7 +53,7 @@ public abstract class PlayerManager : MonoBehaviour
 
         onManaChanged?.Invoke();
     }
-    public int GetMana()
+    public float GetMana()
     {
         return mana;
     }
@@ -74,15 +65,6 @@ public abstract class PlayerManager : MonoBehaviour
             PerSecond();
 
             yield return new WaitForSeconds(1);
-        }
-    }
-
-    private void FillUnits(List<Unit> unitList)
-    {
-        foreach (var unit in unitList)
-        {
-            if (unit.level > 0)
-                units.Add(unit);
         }
     }
 

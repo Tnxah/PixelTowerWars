@@ -22,8 +22,10 @@ public class EnemyManager : PlayerManager
             instance = this;
         }
 
-        
+        InitializeTowerUnit();
+        InitializeEnemies();
 
+        FillUnits();
         base.Awake();
     }
     protected override void Start()
@@ -31,14 +33,14 @@ public class EnemyManager : PlayerManager
         base.Start();
         lastSpawn = new float[units.Count];
         StartCoroutine(SpawnRandom());
-        //SpawnUnit(0);
-        //SpawnUnit(1);
-    }
-    private void FixedUpdate()
-    {
-        //SpawnUnit(0);
     }
 
+    private void InitializeTowerUnit()
+    {
+        towerUnit.maxMana = GameManager.instance.difficulty.maxMana;
+        towerUnit.manaPerSecond = GameManager.instance.difficulty.manaPerSecond;
+        towerUnit.towerHealth = GameManager.instance.difficulty.towerHealth;
+    }
     private IEnumerator SpawnRandom() 
     {
         while (true)
@@ -52,5 +54,28 @@ public class EnemyManager : PlayerManager
             lastSpawn[randomIndex] = Time.time;
         }
         
+    }
+
+    private void FillUnits()
+    {
+        foreach (var unit in GameManager.instance.GetEnemies())
+        {
+            if (unit.level > 0)
+                units.Add(unit);
+        }
+    }
+
+    private void InitializeEnemies()
+    {
+        var enemyLevels = GameManager.instance.difficulty.enemyLevels;
+        var enemies = GameManager.instance.GetEnemies();
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            var level = i < enemyLevels.Length ? enemyLevels[i] : 0;
+            UnitUpgrader.UpgradeEnemyUnit(enemies[i].name, level);
+
+            if (i == enemies.Count - 1) return;
+        }
     }
 }

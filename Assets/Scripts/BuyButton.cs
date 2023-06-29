@@ -61,15 +61,14 @@ public class BuyButton : MonoBehaviour
 
         if(IsEnoughMoney())
             button.interactable = true;
+        else
+            button.interactable = false;
     }
 
     private void Buy()
     {
         UnitUpgrader.UpgradeUnit(unit.name, upgrade.level);
         gameManager.money -= upgrade.upgradeCost;
-        button.interactable = false;
-
-        RefreshButton();
     }
 
     private bool IsEnoughMoney()
@@ -78,6 +77,11 @@ public class BuyButton : MonoBehaviour
     }
     private void OnEnable()
     {
+        gameManager.onMoneyChangedCallback += RefreshButton;
         RefreshButton();
+    }
+    private void OnDisable()
+    {
+        gameManager.onMoneyChangedCallback -= RefreshButton;
     }
 }

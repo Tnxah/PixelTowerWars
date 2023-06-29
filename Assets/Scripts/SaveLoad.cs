@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class SaveLoad
 {
-    private static string savePath = "/Saves/save";
+    private static string savePath = "/Saves/";
 
     public static SaveData data;
 
@@ -17,10 +17,11 @@ public static class SaveLoad
 
     public static SaveData Load()
     {
-        string str = String.Concat(Application.persistentDataPath, savePath, ".rims");
+        string str = String.Concat(Application.persistentDataPath, savePath, "save.rims");
         if (!File.Exists(str))
         {
             Debug.Log("Save file not found");
+            ApplyDefault();
             return null;
         }
         BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -31,6 +32,17 @@ public static class SaveLoad
         ApplyLoad();
 
         return data;
+    }
+
+    private static void ApplyDefault()
+    {
+        data = new SaveData();
+
+        data.money = 0;
+        data.completedlevels = 0;
+        data.unitslevels.Add("Goblin", 1);
+
+        ApplyLoad();
     }
 
     public static void Save()
@@ -47,7 +59,7 @@ public static class SaveLoad
         {
             File.Delete(str);
         }
-        str = String.Concat(str, ".rims");
+        str = String.Concat(str, "save.rims");
         FileStream fileStream = new FileStream(str, FileMode.Create);
         binaryFormatter.Serialize(fileStream, data);
         fileStream.Close();
@@ -63,6 +75,8 @@ public static class SaveLoad
         {
             data.unitslevels[unit.name] = unit.level;
         }
+
+        data.completedlevels = GameManager.instance.completedLevels;
     }
 
     private static void ApplyLoad()
@@ -73,6 +87,8 @@ public static class SaveLoad
         {
             UnitUpgrader.UpgradeUnit(unit.Key, unit.Value);
         }
+
+        GameManager.instance.completedLevels = data.completedlevels;
 
         Debug.Log("Saves applied");
     }

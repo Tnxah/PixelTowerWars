@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f868c48538411458cff96c14df21a6, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  name: Goblin
+  level: 1
+  icon: {fileID: -1199980277, guid: 1a26a5945bf62374c9e22866ec01b140, type: 3}
+  team: 2
+  attackType: 0
+  manaCost: 5
+  attack: 5
+  attackSpeed: 1
+  moveSpeed: 2.3
+  health: 150
+  cooldown: 0.5
+  attackRange: 1.2
+  triggerAttackRange: 0.5
+  runtimeAnimatorController: {fileID: 9100000, guid: dff5909462db044499fb708abb5850d4, type: 2}
+  upgrades:
+  - level: 1
+    health: 150
+    moveSpeed: 2.3
+    manaCost: 5
+    attack: 5
+    cooldown: 0.5
+    attackType: 0
+    upgradeCost: 0
+  - level: 2
+    health: 200
+    moveSpeed: 2.3
+    manaCost: 5
+    attack: 7
+    cooldown: 0.5
+    attackType: 0
+    upgradeCost: 100
+  - level: 3
+    health: 220
+    moveSpeed: 2.3
+    manaCost: 5
+    attack: 10
+    cooldown: 0.5
+    attackType: 0
+    upgradeCost: 200

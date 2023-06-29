@@ -44,7 +44,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     public float attack;
     [HideInInspector]
     public AttackType attackType;
-    public float attackRange = 1f;
+    public float attackRange;
     [HideInInspector]
     public float triggerAttackRange;
 
@@ -157,5 +157,10 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         yield return new WaitForSeconds(0.5f);
         rb.velocity = Vector2.zero;
         stunned = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, attackRange * triggerAttackRange);
     }
 }
