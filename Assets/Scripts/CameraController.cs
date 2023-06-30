@@ -26,6 +26,8 @@ public class CameraController : MonoBehaviour
         var halfMapSize = BattleManager.instance.mapSize / 2;
         leftCamLimitPosition = -halfMapSize + width / 2;
         rightCamLimitPosition = halfMapSize - width / 2;
+
+        cam.transform.position = new Vector3(leftCamLimitPosition, cam.transform.position.y, cam.transform.position.z);
     }
     void FixedUpdate()
     {

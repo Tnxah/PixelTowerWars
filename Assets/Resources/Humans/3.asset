@@ -39,15 +39,31 @@ MonoBehaviour:
     health: 450
     moveSpeed: 1
     manaCost: 20
-    attack: 7
+    attack: 6
     cooldown: 5
     attackType: 0
     upgradeCost: 800
   - level: 2
-    health: 800
-    moveSpeed: 2
-    manaCost: 5
-    attack: 20
-    cooldown: 1
+    health: 600
+    moveSpeed: 1.1
+    manaCost: 20
+    attack: 10
+    cooldown: 5
     attackType: 0
-    upgradeCost: 500
+    upgradeCost: 800
+  - level: 3
+    health: 800
+    moveSpeed: 1.1
+    manaCost: 25
+    attack: 15
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 4
+    health: 1200
+    moveSpeed: 1.1
+    manaCost: 25
+    attack: 15
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800

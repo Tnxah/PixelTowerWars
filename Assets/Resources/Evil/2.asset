@@ -28,18 +28,34 @@ MonoBehaviour:
   runtimeAnimatorController: {fileID: 9100000, guid: 0ea7248c574c27a4998cde6debc82cc5, type: 2}
   upgrades:
   - level: 1
-    health: 100
-    moveSpeed: 0.7
+    health: 180
+    moveSpeed: 0.9
     manaCost: 15
-    attack: 10
+    attack: 15
     cooldown: 1
     attackType: 2
-    upgradeCost: 800
+    upgradeCost: 700
   - level: 2
-    health: 150
-    moveSpeed: 0.8
+    health: 200
+    moveSpeed: 1
     manaCost: 13
     attack: 18
     cooldown: 1
     attackType: 2
     upgradeCost: 500
+  - level: 3
+    health: 220
+    moveSpeed: 1
+    manaCost: 10
+    attack: 25
+    cooldown: 1
+    attackType: 2
+    upgradeCost: 1200
+  - level: 4
+    health: 200
+    moveSpeed: 1
+    manaCost: 10
+    attack: 38
+    cooldown: 1
+    attackType: 2
+    upgradeCost: 1500
