@@ -54,11 +54,15 @@ public class Tower : MonoBehaviour, IAttackable
 
         if (!team.Equals(MainPlayerManager.instance.tower.team) && GameManager.instance.difficulty.stageNumber == GameManager.instance.completedLevels)
         {
+            
             GameManager.instance.completedLevels++;
+            EnemyService.RewardMoney(team, GameManager.instance.difficulty.moneyReward);
         }
 
-        EnemyService.RewardMoney(team, GameManager.instance.difficulty.moneyReward);
 
+
+
+        SaveLoad.Save();
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 

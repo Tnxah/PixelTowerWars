@@ -30,7 +30,7 @@ public class StagesUI : MonoBehaviour
 
     public void Next()
     {
-        var number = (currentStage.stageNumber + 1 == stageController.stages.Count) || (currentStage.stageNumber + 1 > gameManager.completedLevels) ? 0 : gameManager.completedLevels;
+        var number = (currentStage.stageNumber + 1 == stageController.stages.Count) || (currentStage.stageNumber + 1 > gameManager.completedLevels) ? 0 : currentStage.stageNumber + 1;
 
         SetStage(number);
         Refresh();

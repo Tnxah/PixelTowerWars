@@ -73,7 +73,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
         this.attackSpeed = unit.attackSpeed;
         this.attackType = unit.attackType;
         this.attackRange = unit.attackRange;
-        this.triggerAttackRange = unit.triggerAttackRange;
+        this.triggerAttackRange = Random.Range(unit.triggerAttackRange - 0.1f, unit.triggerAttackRange + 0.1f);
         
         this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }

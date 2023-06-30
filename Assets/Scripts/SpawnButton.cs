@@ -10,25 +10,33 @@ public class SpawnButton : MonoBehaviour
     private int unitIndex;
     private bool isReady = true;
 
-    public void Initialize(PlayerManager playerManager, int unitIndex)
-    {
-        GetComponent<Button>().interactable = false;
+    public Button button;
+    public Image icon;
+    public TextMeshProUGUI manaCost;
 
-        this.playerManager = playerManager;
+    private void Awake()
+    {
+        playerManager = MainPlayerManager.instance;
+    }
+
+    public void Initialize(int unitIndex)
+    {
+        button.interactable = false;
+
         this.unitIndex = unitIndex;
 
-        GetComponent<Button>().onClick.AddListener(() => StartCoroutine(Spawn()));
-        GetComponentsInChildren<Image>()[1].sprite = playerManager.units[unitIndex]?.icon;
-        GetComponentInChildren<TextMeshProUGUI>().text = playerManager.units[unitIndex].manaCost.ToString();
+        button.onClick.AddListener(() => StartCoroutine(Spawn()));
+        icon.sprite = playerManager.units[unitIndex]?.icon;
+        manaCost.text = playerManager.units[unitIndex].manaCost.ToString();
     }
 
     private IEnumerator Spawn()
     {
         playerManager.SpawnUnit(unitIndex);
-        GetComponent<Button>().interactable = false;
+        button.interactable = false;
         isReady = false;
         yield return new WaitForSeconds(playerManager.units[unitIndex].cooldown);
-        GetComponent<Button>().interactable = true;
+        button.interactable = true;
         isReady = true;
     }
 
@@ -36,11 +44,11 @@ public class SpawnButton : MonoBehaviour
     {
         if (playerManager.GetMana() >= playerManager.units[unitIndex].manaCost && isReady)
         {
-            GetComponent<Button>().interactable = true;
+            button.interactable = true;
         }
         else
         {
-            GetComponent<Button>().interactable = false;
+            button.interactable = false;
         }
     }
 }

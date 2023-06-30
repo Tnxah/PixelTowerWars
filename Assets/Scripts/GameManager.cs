@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -60,6 +61,17 @@ public class GameManager : MonoBehaviour
             {
                 enemyUnits.Add(unit);
             }
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+                Application.Quit();
+            else
+                SceneManager.LoadScene(0);
         }
     }
 

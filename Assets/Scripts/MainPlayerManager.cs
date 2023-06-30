@@ -38,7 +38,7 @@ public class MainPlayerManager : PlayerManager
 
             var button = Instantiate(unitButtonPrefab, unitsHolder);
 
-            button.GetComponent<SpawnButton>().Initialize(this, index);
+            button.GetComponent<SpawnButton>().Initialize(index);
         }
     }
 

@@ -69,6 +69,8 @@ public class BuyButton : MonoBehaviour
     {
         UnitUpgrader.UpgradeUnit(unit.name, upgrade.level);
         gameManager.money -= upgrade.upgradeCost;
+
+        SaveLoad.Save();
     }
 
     private bool IsEnoughMoney()
