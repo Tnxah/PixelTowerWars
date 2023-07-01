@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Wizard
   level: 0
-  icon: {fileID: 21300000, guid: c9b7d011e738e264eb7f1d7153abb966, type: 3}
+  icon: {fileID: 1365488722, guid: 5e9798d1fa97eb743a5dcb2e5c0f7691, type: 3}
   team: 2
   attackType: 2
   manaCost: 25
@@ -34,7 +34,7 @@ MonoBehaviour:
     attack: 15
     cooldown: 5
     attackType: 2
-    upgradeCost: 1000
+    upgradeCost: 800
   - level: 2
     health: 350
     moveSpeed: 2
@@ -42,7 +42,7 @@ MonoBehaviour:
     attack: 18
     cooldown: 5
     attackType: 2
-    upgradeCost: 500
+    upgradeCost: 400
   - level: 3
     health: 450
     moveSpeed: 2
@@ -55,7 +55,7 @@ MonoBehaviour:
     health: 500
     moveSpeed: 2
     manaCost: 25
-    attack: 25
+    attack: 30
     cooldown: 4
     attackType: 2
     upgradeCost: 1200
