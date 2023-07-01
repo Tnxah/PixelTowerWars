@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
         {
             SetShop(false);
             SetStages(false);
+            SetCredits(false);
         }
         buttons.SetActive(state);
     }
@@ -44,6 +45,14 @@ public class UIManager : MonoBehaviour
             money.text = GameManager.instance.money.ToString();
         }
         shop.SetActive(state);            
+    }
+    public void SetCredits(bool state)
+    {
+        if (state)
+        {
+            SetButtons(false);
+        }
+        credits.SetActive(state);            
     }
 
     public void SetStages(bool state)

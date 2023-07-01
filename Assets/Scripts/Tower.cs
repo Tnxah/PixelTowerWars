@@ -59,11 +59,12 @@ public class Tower : MonoBehaviour, IAttackable
             EnemyService.RewardMoney(team, GameManager.instance.difficulty.moneyReward);
         }
 
+#if UNITY_ANDROID
         if (team.Equals(MainPlayerManager.instance.tower.team))
         {
             AdsManager.instance.ShowInterstitial();
         }
-
+#endif
 
 
         SaveLoad.Save();

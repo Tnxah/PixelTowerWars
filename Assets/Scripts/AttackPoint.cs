@@ -17,6 +17,8 @@ public class AttackPoint : MonoBehaviour
             var attackable = enemy.GetComponent<IAttackable>();
             if (attackable != null && !attackable.GetTeam().Equals(characterUnit.team))
             {
+                characterUnit.audioController.PlayAttackSound();
+
                 attackable.DealDamage(characterUnit.attack);
 
                 if (!characterUnit.attackType.Equals(AttackType.Area)) 

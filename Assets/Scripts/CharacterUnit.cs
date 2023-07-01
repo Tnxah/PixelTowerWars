@@ -11,6 +11,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     public Team team;
 
     public CharacterAnimationController characterAnimationController;
+    public AudioController audioController;
 
     //[HideInInspector]
     //public List<GameObject> enemies = new List<GameObject>();
@@ -92,7 +93,6 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             rb.velocity = direction * moveSpeed;
         }
     }
-
 
 
     //HEALTH
