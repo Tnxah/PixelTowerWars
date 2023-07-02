@@ -28,34 +28,34 @@ MonoBehaviour:
   runtimeAnimatorController: {fileID: 9100000, guid: 777908e0a69874041a6b76e96c17e9c2, type: 2}
   upgrades:
   - level: 0
-    health: 100
+    health: 120
     moveSpeed: 2.1
     manaCost: 6
-    attack: 5
-    cooldown: 5
+    attack: 3
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
   - level: 1
-    health: 100
+    health: 120
     moveSpeed: 2.1
     manaCost: 6
-    attack: 5
-    cooldown: 5
+    attack: 3
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
   - level: 2
-    health: 100
+    health: 140
     moveSpeed: 2.1
     manaCost: 6
-    attack: 5
-    cooldown: 5
+    attack: 4
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
   - level: 3
     health: 160
     moveSpeed: 2.1
     manaCost: 6
-    attack: 6
+    attack: 7
     cooldown: 1
     attackType: 0
     upgradeCost: 800
@@ -63,23 +63,95 @@ MonoBehaviour:
     health: 180
     moveSpeed: 2.1
     manaCost: 6
-    attack: 7
-    cooldown: 0.7
+    attack: 10
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
   - level: 5
     health: 250
     moveSpeed: 2.1
     manaCost: 6
-    attack: 9
-    cooldown: 0.6
+    attack: 13
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
   - level: 6
+    health: 350
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 20
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 7
+    health: 400
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 25
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 8
+    health: 450
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 30
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 9
     health: 500
     moveSpeed: 2.1
     manaCost: 6
-    attack: 15
-    cooldown: 0.5
+    attack: 35
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 10
+    health: 550
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 50
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 11
+    health: 600
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 54
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 12
+    health: 650
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 58
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 13
+    health: 700
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 62
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 14
+    health: 750
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 66
+    cooldown: 1
+    attackType: 0
+    upgradeCost: 800
+  - level: 15
+    health: 999
+    moveSpeed: 2.1
+    manaCost: 6
+    attack: 75
+    cooldown: 1
     attackType: 0
     upgradeCost: 800
