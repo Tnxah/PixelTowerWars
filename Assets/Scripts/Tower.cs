@@ -12,10 +12,14 @@ public class Tower : MonoBehaviour, IAttackable
 
     public Animator animator;
 
+    private BattleManager battleManager;
+
     public void Initialize(TowerUnit unit)
     {
         this.team = unit.team;
         this.health = unit.towerHealth;
+
+        battleManager = BattleManager.instance;
 
         //this.animator.runtimeAnimatorController = unit.runtimeAnimatorController;
     }
@@ -43,6 +47,8 @@ public class Tower : MonoBehaviour, IAttackable
         var randomPosition = new Vector3(spawnPoint.position.x, Random.Range(spawnPoint.position.y - 0.3f, spawnPoint.position.y + 0.3f), spawnPoint.position.z);
 
         var character = Instantiate(unitPrefab, randomPosition, Quaternion.identity);
+
+        battleManager.units.Add(character);
 
         character.GetComponent<CharacterUnit>().Initialize(unit, (int)transform.lossyScale.x);
         character.GetComponent<SpriteRenderer>().sortingOrder = (int)(-randomPosition.y * 100f);

@@ -40,9 +40,13 @@ public class GameManager : MonoBehaviour
 
             LoadUnits();
             SaveLoad.Load();
-        }
 
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void LoadUnits()

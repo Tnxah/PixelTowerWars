@@ -43,10 +43,20 @@ public class EnemyManager : PlayerManager
     }
     private IEnumerator SpawnRandom() 
     {
+        var randomIndex = 0;
+        var randomUnit = units[randomIndex];
+
+        yield return new WaitUntil(() => mana >= randomUnit.manaCost && Time.time - lastSpawn[randomIndex] >= units[randomIndex].cooldown);
+
+        SpawnUnit(randomIndex);
+        lastSpawn[randomIndex] = Time.time;
+
+        yield return new WaitUntil(() => BattleManager.instance.units.Count > 1);
+
         while (true)
         {
-            var randomIndex = rnd.Next(0, units.Count);
-            var randomUnit = units[randomIndex];
+            randomIndex = rnd.Next(0, units.Count);
+            randomUnit = units[randomIndex];
 
             yield return new WaitUntil(() => mana >= randomUnit.manaCost && Time.time - lastSpawn[randomIndex] >= units[randomIndex].cooldown);
 
@@ -54,6 +64,11 @@ public class EnemyManager : PlayerManager
             lastSpawn[randomIndex] = Time.time;
         }
         
+    }
+
+    private void SmartSpawn()
+    {
+
     }
 
     private void FillUnits()

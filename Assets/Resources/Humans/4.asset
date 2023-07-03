@@ -30,7 +30,7 @@ MonoBehaviour:
   - level: 0
     health: 200
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 7
     cooldown: 5
     attackType: 2
@@ -38,7 +38,7 @@ MonoBehaviour:
   - level: 1
     health: 200
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 7
     cooldown: 10
     attackType: 2
@@ -46,7 +46,7 @@ MonoBehaviour:
   - level: 2
     health: 200
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 10
     cooldown: 10
     attackType: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
   - level: 3
     health: 200
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 12
     cooldown: 10
     attackType: 2
@@ -62,7 +62,7 @@ MonoBehaviour:
   - level: 4
     health: 160
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 15
     cooldown: 11
     attackType: 2
@@ -70,7 +70,7 @@ MonoBehaviour:
   - level: 5
     health: 220
     moveSpeed: 2
-    manaCost: 35
+    manaCost: 25
     attack: 18
     cooldown: 12
     attackType: 2

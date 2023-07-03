@@ -2460,19 +2460,19 @@ MonoBehaviour:
     manaPerSecond: 1
     maxMana: 100
     moneyReward: 300
-    enemyLevels: 0000000001000000
+    enemyLevels: 0100000001000000
   - stageNumber: 3
     towerHealth: 1300
     manaPerSecond: 1.1
     maxMana: 100
     moneyReward: 400
-    enemyLevels: 0100000001000000
+    enemyLevels: 0200000001000000
   - stageNumber: 4
     towerHealth: 1400
     manaPerSecond: 1
     maxMana: 200
     moneyReward: 500
-    enemyLevels: 0200000001000000
+    enemyLevels: 0200000002000000
   - stageNumber: 5
     towerHealth: 1500
     manaPerSecond: 1.1
