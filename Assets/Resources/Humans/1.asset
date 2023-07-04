@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   name: Warrior
-  level: 1
+  level: 3
   icon: {fileID: 0}
   team: 1
   attackType: 0
   manaCost: 6
-  attack: 4
+  attack: 7
   attackSpeed: 1
   moveSpeed: 2.1
-  health: 100
-  cooldown: 5
+  health: 160
+  cooldown: 1
   attackRange: 1
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: 777908e0a69874041a6b76e96c17e9c2, type: 2}
@@ -47,7 +47,7 @@ MonoBehaviour:
     health: 140
     moveSpeed: 2.1
     manaCost: 6
-    attack: 4
+    attack: 5
     cooldown: 1
     attackType: 0
     upgradeCost: 800
@@ -148,7 +148,7 @@ MonoBehaviour:
     attackType: 0
     upgradeCost: 800
   - level: 15
-    health: 999
+    health: 1000
     moveSpeed: 2.1
     manaCost: 6
     attack: 75

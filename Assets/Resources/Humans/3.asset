@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   name: Old Hero
-  level: 1
+  level: 0
   icon: {fileID: 0}
   team: 1
   attackType: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
     health: 600
     moveSpeed: 1
     manaCost: 15
-    attack: 13
+    attack: 18
     cooldown: 5
     attackType: 0
     upgradeCost: 800
@@ -55,15 +55,23 @@ MonoBehaviour:
     health: 800
     moveSpeed: 1.1
     manaCost: 15
-    attack: 18
+    attack: 27
     cooldown: 5
     attackType: 0
     upgradeCost: 800
   - level: 4
-    health: 1200
+    health: 1100
     moveSpeed: 1.1
     manaCost: 15
-    attack: 20
+    attack: 37
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 4
+    health: 1500
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 48
     cooldown: 5
     attackType: 0
     upgradeCost: 800
