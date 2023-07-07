@@ -67,11 +67,91 @@ MonoBehaviour:
     cooldown: 5
     attackType: 0
     upgradeCost: 800
-  - level: 4
+  - level: 5
     health: 1500
     moveSpeed: 1.1
     manaCost: 15
     attack: 48
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 6
+    health: 1650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 57
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 7
+    health: 1900
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 66
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 8
+    health: 2150
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 76
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 9
+    health: 2400
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 85
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 10
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 95
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 11
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 104
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 12
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 114
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 13
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 123
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 14
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 133
+    cooldown: 5
+    attackType: 0
+    upgradeCost: 800
+  - level: 15
+    health: 2650
+    moveSpeed: 1.1
+    manaCost: 15
+    attack: 142
     cooldown: 5
     attackType: 0
     upgradeCost: 800

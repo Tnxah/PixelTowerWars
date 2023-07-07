@@ -51,7 +51,9 @@ public class Tower : MonoBehaviour, IAttackable
         battleManager.units.Add(character);
 
         character.GetComponent<CharacterUnit>().Initialize(unit, (int)transform.lossyScale.x);
-        character.GetComponent<SpriteRenderer>().sortingOrder = (int)(-randomPosition.y * 100f);
+        character.GetComponent<CharacterUnit>().characterSpriteRenderer.sortingOrder = (int)(-randomPosition.y * 100f);
+
+        character.GetComponent<CharacterUnit>().shadowSpriteRenderer.sortingOrder = (int)(-randomPosition.y * 100f) - 1;
     }
 
     private void Death()

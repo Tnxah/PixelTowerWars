@@ -2447,19 +2447,19 @@ MonoBehaviour:
     towerHealth: 1000
     manaPerSecond: 1
     maxMana: 100
-    moneyReward: 100
+    moneyReward: 200
     enemyLevels: 01000000
   - stageNumber: 1
-    towerHealth: 1200
-    manaPerSecond: 1
+    towerHealth: 1100
+    manaPerSecond: 1.1
     maxMana: 100
-    moneyReward: 200
+    moneyReward: 300
     enemyLevels: 02000000
   - stageNumber: 2
     towerHealth: 1200
     manaPerSecond: 1
     maxMana: 100
-    moneyReward: 300
+    moneyReward: 400
     enemyLevels: 0200000001000000
   - stageNumber: 3
     towerHealth: 1300
@@ -2489,56 +2489,62 @@ MonoBehaviour:
     towerHealth: 1700
     manaPerSecond: 1
     maxMana: 200
-    moneyReward: 1200
+    moneyReward: 1100
     enemyLevels: 020000000200000002000000
   - stageNumber: 8
     towerHealth: 1800
     manaPerSecond: 1.2
     maxMana: 200
-    moneyReward: 1400
+    moneyReward: 1100
     enemyLevels: 020000000200000002000000
   - stageNumber: 9
     towerHealth: 1900
     manaPerSecond: 1.2
     maxMana: 200
-    moneyReward: 1600
-    enemyLevels: 030000000300000003000000
+    moneyReward: 1200
+    enemyLevels: 030000000200000002000000
   - stageNumber: 10
-    towerHealth: 2500
+    towerHealth: 2000
     manaPerSecond: 1.2
     maxMana: 400
-    moneyReward: 2000
-    enemyLevels: 040000000300000003000000
+    moneyReward: 1200
+    enemyLevels: 030000000200000002000000
   - stageNumber: 11
-    towerHealth: 2500
+    towerHealth: 2100
     manaPerSecond: 1.3
     maxMana: 400
-    moneyReward: 2400
-    enemyLevels: 040000000400000003000000
+    moneyReward: 1200
+    enemyLevels: 030000000300000002000000
   - stageNumber: 12
-    towerHealth: 2500
-    manaPerSecond: 1.4
+    towerHealth: 2200
+    manaPerSecond: 1.3
     maxMana: 400
-    moneyReward: 2800
-    enemyLevels: 050000000400000004000000
+    moneyReward: 1300
+    enemyLevels: 030000000300000002000000
   - stageNumber: 13
-    towerHealth: 2500
-    manaPerSecond: 1.5
+    towerHealth: 2300
+    manaPerSecond: 1.3
     maxMana: 400
-    moneyReward: 3000
-    enemyLevels: 050000000400000004000000
+    moneyReward: 1300
+    enemyLevels: 030000000300000002000000
   - stageNumber: 14
-    towerHealth: 2500
-    manaPerSecond: 1.4
+    towerHealth: 2400
+    manaPerSecond: 1
     maxMana: 400
-    moneyReward: 3100
-    enemyLevels: 050000000400000005000000
+    moneyReward: 1300
+    enemyLevels: 030000000300000003000000
   - stageNumber: 15
-    towerHealth: 3000
-    manaPerSecond: 1.5
+    towerHealth: 2600
+    manaPerSecond: 1.1
     maxMana: 400
-    moneyReward: 3500
-    enemyLevels: 060000000400000005000000
+    moneyReward: 1600
+    enemyLevels: 030000000300000003000000
+  - stageNumber: 16
+    towerHealth: 2700
+    manaPerSecond: 1.2
+    maxMana: 400
+    moneyReward: 1600
+    enemyLevels: 030000000300000003000000
 --- !u!114 &1565381536
 MonoBehaviour:
   m_ObjectHideFlags: 0

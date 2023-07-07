@@ -31,47 +31,119 @@ MonoBehaviour:
     health: 250
     moveSpeed: 2
     manaCost: 25
-    attack: 15
+    attack: 14
     cooldown: 5
     attackType: 2
-    upgradeCost: 800
+    upgradeCost: 4000
   - level: 2
     health: 350
     moveSpeed: 2
     manaCost: 25
-    attack: 20
+    attack: 16
     cooldown: 5
     attackType: 2
-    upgradeCost: 400
+    upgradeCost: 1500
   - level: 3
     health: 450
     moveSpeed: 2
     manaCost: 25
-    attack: 25
+    attack: 19
     cooldown: 4
     attackType: 2
-    upgradeCost: 800
+    upgradeCost: 2000
   - level: 4
     health: 500
     moveSpeed: 2
     manaCost: 25
-    attack: 30
+    attack: 21
     cooldown: 4
     attackType: 2
-    upgradeCost: 1000
-  - level: 5
-    health: 550
-    moveSpeed: 2
-    manaCost: 25
-    attack: 40
-    cooldown: 4
-    attackType: 2
-    upgradeCost: 1200
+    upgradeCost: 3000
   - level: 5
     health: 600
     moveSpeed: 2
     manaCost: 25
-    attack: 55
-    cooldown: 2
+    attack: 24
+    cooldown: 4
     attackType: 2
-    upgradeCost: 2000
+    upgradeCost: 7000
+  - level: 6
+    health: 685
+    moveSpeed: 2
+    manaCost: 25
+    attack: 28
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 7800
+  - level: 7
+    health: 770
+    moveSpeed: 2
+    manaCost: 25
+    attack: 32
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 8600
+  - level: 8
+    health: 855
+    moveSpeed: 2
+    manaCost: 25
+    attack: 37
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 9400
+  - level: 9
+    health: 940
+    moveSpeed: 2
+    manaCost: 25
+    attack: 43
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 10200
+  - level: 10
+    health: 1025
+    moveSpeed: 2
+    manaCost: 25
+    attack: 49
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 11000
+  - level: 11
+    health: 1110
+    moveSpeed: 2
+    manaCost: 25
+    attack: 57
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 14000
+  - level: 12
+    health: 1195
+    moveSpeed: 2
+    manaCost: 25
+    attack: 65
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 15000
+  - level: 13
+    health: 1280
+    moveSpeed: 2
+    manaCost: 25
+    attack: 75
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 16000
+  - level: 14
+    health: 1365
+    moveSpeed: 2
+    manaCost: 25
+    attack: 86
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 17000
+  - level: 15
+    health: 1450
+    moveSpeed: 2
+    manaCost: 25
+    attack: 99
+    cooldown: 4
+    attackType: 2
+    upgradeCost: 18000

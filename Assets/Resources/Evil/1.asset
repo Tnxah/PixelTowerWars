@@ -50,7 +50,7 @@ MonoBehaviour:
     attack: 10
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 300
+    upgradeCost: 600
   - level: 4
     health: 180
     moveSpeed: 2.3
@@ -58,7 +58,7 @@ MonoBehaviour:
     attack: 13
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 500
+    upgradeCost: 900
   - level: 5
     health: 250
     moveSpeed: 2.3
@@ -66,7 +66,7 @@ MonoBehaviour:
     attack: 20
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 1000
+    upgradeCost: 1200
   - level: 6
     health: 350
     moveSpeed: 2.3
@@ -74,7 +74,7 @@ MonoBehaviour:
     attack: 25
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 1100
+    upgradeCost: 1500
   - level: 7
     health: 400
     moveSpeed: 2.3
@@ -82,7 +82,7 @@ MonoBehaviour:
     attack: 30
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 1300
+    upgradeCost: 2000
   - level: 8
     health: 450
     moveSpeed: 2.3
@@ -90,7 +90,7 @@ MonoBehaviour:
     attack: 35
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 1500
+    upgradeCost: 2200
   - level: 9
     health: 500
     moveSpeed: 2.3
@@ -98,7 +98,7 @@ MonoBehaviour:
     attack: 40
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 1800
+    upgradeCost: 2500
   - level: 10
     health: 550
     moveSpeed: 2.3
@@ -106,7 +106,7 @@ MonoBehaviour:
     attack: 60
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 2000
+    upgradeCost: 2900
   - level: 11
     health: 600
     moveSpeed: 2.3
@@ -114,7 +114,7 @@ MonoBehaviour:
     attack: 65
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 2500
+    upgradeCost: 3300
   - level: 12
     health: 650
     moveSpeed: 2.3
@@ -122,7 +122,7 @@ MonoBehaviour:
     attack: 70
     cooldown: 0.5
     attackType: 0
-    upgradeCost: 3000
+    upgradeCost: 4000
   - level: 13
     health: 700
     moveSpeed: 2.3

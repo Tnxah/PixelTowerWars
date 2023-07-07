@@ -49,6 +49,8 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public float triggerAttackRange;
 
+    public SpriteRenderer characterSpriteRenderer, shadowSpriteRenderer;
+
 
     // Start is called before the first frame update
     public void Initialize(Unit unit, int direction)
