@@ -49,7 +49,7 @@ public class MainPlayerManager : PlayerManager
 
     public void RefreshManaText()
     {
-        manaText.text = mana.ToString();
+        manaText.text = Mathf.Round(mana).ToString();
     }
 
     private void FillUnits()

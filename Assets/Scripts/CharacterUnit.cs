@@ -40,7 +40,7 @@ public class CharacterUnit : MonoBehaviour, IAttackable
     [HideInInspector]
     public float attackSpeed;
     [HideInInspector]
-    public bool isAttacking;
+    public bool isAttack;
     [HideInInspector]
     public float attack;
     [HideInInspector]
@@ -90,12 +90,21 @@ public class CharacterUnit : MonoBehaviour, IAttackable
 
     private void Run()
     {
-        if (!isAttacking && alive && !stunned)
+        if (!isAttacking() && alive && !stunned)
         {
             rb.velocity = direction * moveSpeed;
         }
     }
 
+    private bool isAttacking()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer"));
+        if (!stateInfo.IsName("attack") || (stateInfo.IsName("attack") && stateInfo.normalizedTime >= 0.99f))
+        {
+            return false;
+        }
+        return true;
+    }
 
     //HEALTH
 
@@ -143,12 +152,12 @@ public class CharacterUnit : MonoBehaviour, IAttackable
             var attackable = enemy.GetComponent<IAttackable>();
             if (attackable != null && !attackable.GetTeam().Equals(team) && alive && !stunned)
             {
-                isAttacking = true;
+                isAttack = true;
                 rb.velocity = Vector2.zero;
                 return;
             }
         }
-        isAttacking = false;
+        isAttack = false;
     }
 
     private IEnumerator Stun()

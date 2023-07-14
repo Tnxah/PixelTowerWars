@@ -22,7 +22,7 @@ MonoBehaviour:
   attackSpeed: 1
   moveSpeed: 0.8
   health: 100
-  cooldown: 1
+  cooldown: 5
   attackRange: 1.75
   triggerAttackRange: 0.65
   runtimeAnimatorController: {fileID: 9100000, guid: 0ea7248c574c27a4998cde6debc82cc5, type: 2}
@@ -32,118 +32,118 @@ MonoBehaviour:
     moveSpeed: 0.9
     manaCost: 15
     attack: 25
-    cooldown: 2
+    cooldown: 5
     attackType: 0
     upgradeCost: 600
   - level: 2
-    health: 500
+    health: 480
     moveSpeed: 0.9
     manaCost: 15
-    attack: 40
-    cooldown: 2
+    attack: 30
+    cooldown: 5
     attackType: 0
-    upgradeCost: 600
+    upgradeCost: 400
   - level: 3
-    health: 700
+    health: 576
     moveSpeed: 1
     manaCost: 15
-    attack: 56
-    cooldown: 2
+    attack: 36
+    cooldown: 5
     attackType: 2
     upgradeCost: 800
   - level: 4
-    health: 1000
+    health: 691
     moveSpeed: 0.9
     manaCost: 15
-    attack: 73
-    cooldown: 2
+    attack: 43
+    cooldown: 5
     attackType: 2
     upgradeCost: 1200
   - level: 5
-    health: 1400
+    health: 829
     moveSpeed: 0.9
     manaCost: 15
-    attack: 91
-    cooldown: 2
+    attack: 52
+    cooldown: 5
     attackType: 2
     upgradeCost: 2000
   - level: 6
-    health: 1550
+    health: 995
     moveSpeed: 0.9
     manaCost: 15
-    attack: 107
-    cooldown: 2
+    attack: 62
+    cooldown: 5
     attackType: 2
     upgradeCost: 2300
   - level: 7
-    health: 1800
+    health: 1194
     moveSpeed: 0.9
     manaCost: 15
-    attack: 123
-    cooldown: 2
+    attack: 75
+    cooldown: 5
     attackType: 2
     upgradeCost: 2760
   - level: 8
-    health: 2050
+    health: 1433
     moveSpeed: 0.9
     manaCost: 15
-    attack: 140
-    cooldown: 2
+    attack: 90
+    cooldown: 5
     attackType: 2
     upgradeCost: 3220
   - level: 9
-    health: 2300
+    health: 1720
     moveSpeed: 0.9
     manaCost: 15
-    attack: 156
-    cooldown: 2
+    attack: 107
+    cooldown: 5
     attackType: 2
     upgradeCost: 3680
   - level: 10
-    health: 2550
+    health: 2064
     moveSpeed: 0.9
     manaCost: 15
-    attack: 173
-    cooldown: 2
+    attack: 129
+    cooldown: 5
     attackType: 2
     upgradeCost: 4140
   - level: 11
-    health: 2550
+    health: 2477
     moveSpeed: 0.9
     manaCost: 15
-    attack: 189
-    cooldown: 2
+    attack: 155
+    cooldown: 5
     attackType: 2
     upgradeCost: 5200
   - level: 12
-    health: 2550
+    health: 2972
     moveSpeed: 0.9
     manaCost: 15
-    attack: 206
-    cooldown: 2
+    attack: 186
+    cooldown: 5
     attackType: 2
     upgradeCost: 6400
   - level: 13
-    health: 2550
+    health: 3566
     moveSpeed: 0.9
     manaCost: 15
-    attack: 222
-    cooldown: 2
+    attack: 223
+    cooldown: 5
     attackType: 2
     upgradeCost: 8500
   - level: 14
-    health: 2550
+    health: 4280
     moveSpeed: 0.9
     manaCost: 15
-    attack: 239
-    cooldown: 2
+    attack: 267
+    cooldown: 5
     attackType: 2
     upgradeCost: 10000
   - level: 15
-    health: 2550
+    health: 5136
     moveSpeed: 0.9
     manaCost: 15
-    attack: 255
-    cooldown: 2
+    attack: 321
+    cooldown: 5
     attackType: 2
-    upgradeCost: 14000
+    upgradeCost: 12000

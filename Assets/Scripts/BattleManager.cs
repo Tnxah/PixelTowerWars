@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class BattleManager : MonoBehaviour
 
     public List<GameObject> units = new List<GameObject>();
 
+    public Tower mainPlayerTower;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -17,5 +21,15 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (units.Count > 1)
+                AdsManager.instance.ShowInterstitial();
+            
+                SceneManager.LoadScene(0);
+        }
+    }
 
 }

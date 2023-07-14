@@ -47,6 +47,11 @@ public abstract class PlayerManager : MonoBehaviour
         onManaChanged?.Invoke();
     }
 
+    public void IncreaseManaPerSecond()
+    {
+        manaPerSecond += 0.2f;
+    }
+
     public virtual void DecreaseMana(int mana)
     {
         this.mana -= mana;

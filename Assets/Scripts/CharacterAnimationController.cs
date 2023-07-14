@@ -19,7 +19,7 @@ public class CharacterAnimationController : MonoBehaviour
     private void FixedUpdate()
     {
         animator.SetFloat("Run", Mathf.Abs(characterUnit.rb.velocity.x));
-        animator.SetBool("Attack", characterUnit.isAttacking);
+        animator.SetBool("Attack", characterUnit.isAttack);
     }
 
     

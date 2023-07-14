@@ -22,7 +22,7 @@ MonoBehaviour:
   attackSpeed: 1
   moveSpeed: 2
   health: 250
-  cooldown: 5
+  cooldown: 10
   attackRange: 2.2
   triggerAttackRange: 0.7
   runtimeAnimatorController: {fileID: 9100000, guid: 8348b741298689c4e95ccb5f830250e1, type: 2}
@@ -31,119 +31,119 @@ MonoBehaviour:
     health: 250
     moveSpeed: 2
     manaCost: 25
-    attack: 14
-    cooldown: 5
+    attack: 15
+    cooldown: 10
+    attackType: 2
+    upgradeCost: 5000
+  - level: 2
+    health: 300
+    moveSpeed: 2
+    manaCost: 25
+    attack: 18
+    cooldown: 10
+    attackType: 2
+    upgradeCost: 2500
+  - level: 3
+    health: 360
+    moveSpeed: 2
+    manaCost: 25
+    attack: 22
+    cooldown: 10
     attackType: 2
     upgradeCost: 4000
-  - level: 2
-    health: 350
-    moveSpeed: 2
-    manaCost: 25
-    attack: 16
-    cooldown: 5
-    attackType: 2
-    upgradeCost: 1500
-  - level: 3
-    health: 450
-    moveSpeed: 2
-    manaCost: 25
-    attack: 19
-    cooldown: 4
-    attackType: 2
-    upgradeCost: 2000
   - level: 4
-    health: 500
+    health: 432
     moveSpeed: 2
     manaCost: 25
-    attack: 21
-    cooldown: 4
+    attack: 26
+    cooldown: 10
     attackType: 2
-    upgradeCost: 3000
+    upgradeCost: 5000
   - level: 5
-    health: 600
+    health: 518
     moveSpeed: 2
     manaCost: 25
-    attack: 24
-    cooldown: 4
+    attack: 31
+    cooldown: 10
     attackType: 2
-    upgradeCost: 7000
+    upgradeCost: 6300
   - level: 6
-    health: 685
-    moveSpeed: 2
-    manaCost: 25
-    attack: 28
-    cooldown: 4
-    attackType: 2
-    upgradeCost: 7800
-  - level: 7
-    health: 770
-    moveSpeed: 2
-    manaCost: 25
-    attack: 32
-    cooldown: 4
-    attackType: 2
-    upgradeCost: 8600
-  - level: 8
-    health: 855
+    health: 622
     moveSpeed: 2
     manaCost: 25
     attack: 37
-    cooldown: 4
+    cooldown: 10
+    attackType: 2
+    upgradeCost: 7800
+  - level: 7
+    health: 746
+    moveSpeed: 2
+    manaCost: 25
+    attack: 45
+    cooldown: 10
+    attackType: 2
+    upgradeCost: 8600
+  - level: 8
+    health: 896
+    moveSpeed: 2
+    manaCost: 25
+    attack: 54
+    cooldown: 10
     attackType: 2
     upgradeCost: 9400
   - level: 9
-    health: 940
+    health: 1075
     moveSpeed: 2
     manaCost: 25
-    attack: 43
-    cooldown: 4
+    attack: 64
+    cooldown: 10
     attackType: 2
     upgradeCost: 10200
   - level: 10
-    health: 1025
+    health: 1290
     moveSpeed: 2
     manaCost: 25
-    attack: 49
-    cooldown: 4
+    attack: 77
+    cooldown: 10
     attackType: 2
     upgradeCost: 11000
   - level: 11
-    health: 1110
+    health: 1548
     moveSpeed: 2
     manaCost: 25
-    attack: 57
-    cooldown: 4
+    attack: 93
+    cooldown: 10
     attackType: 2
     upgradeCost: 14000
   - level: 12
-    health: 1195
+    health: 1858
     moveSpeed: 2
     manaCost: 25
-    attack: 65
-    cooldown: 4
+    attack: 111
+    cooldown: 10
     attackType: 2
     upgradeCost: 15000
   - level: 13
-    health: 1280
+    health: 2229
     moveSpeed: 2
     manaCost: 25
-    attack: 75
-    cooldown: 4
+    attack: 134
+    cooldown: 10
     attackType: 2
     upgradeCost: 16000
   - level: 14
-    health: 1365
+    health: 2675
     moveSpeed: 2
     manaCost: 25
-    attack: 86
-    cooldown: 4
+    attack: 160
+    cooldown: 10
     attackType: 2
     upgradeCost: 17000
   - level: 15
-    health: 1450
+    health: 3210
     moveSpeed: 2
     manaCost: 25
-    attack: 99
-    cooldown: 4
+    attack: 193
+    cooldown: 10
     attackType: 2
     upgradeCost: 18000

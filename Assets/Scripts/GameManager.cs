@@ -74,8 +74,6 @@ public class GameManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
                 Application.Quit();
-            else
-                SceneManager.LoadScene(0);
         }
     }
 
